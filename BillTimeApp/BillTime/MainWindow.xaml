@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" Grid.Row="0" FontSize="18">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="exitMenuItem" Header="E_xit" />
+            </MenuItem>
+            <MenuItem Header="_Clients">
+                <MenuItem x:Name="loadClientsMenuItem" Header="_Load Clients" />
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
