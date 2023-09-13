@@ -5,19 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BillTime"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Bill Time Application By Aml3t" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu IsMainMenu="True" Grid.Row="0" FontSize="18">
+        <Menu IsMainMenu="True" Grid.Row="0" FontSize="18" Margin="0 0 0 10">
             <MenuItem Header="_File">
+                <MenuItem x:Name="mainMenuItem" Header="_Main" />
                 <MenuItem x:Name="exitMenuItem" Header="E_xit" />
             </MenuItem>
-            <MenuItem Header="_Clients">
-                <MenuItem x:Name="loadClientsMenuItem" Header="_Load Clients" />
+            <MenuItem Header="_Editors">
+                <MenuItem x:Name="clientsMenuItem" Header="_Client" />
+                <MenuItem x:Name="paymentMenuItem" Header="_Payment" />
+                <MenuItem x:Name="workMenuItem" Header="_Work" />
+                <MenuItem x:Name="defaultsMenuItem" Header="_Defaults" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem x:Name="aboutMenuItem" Header="_About" />
             </MenuItem>
         </Menu>
+        <ContentControl x:Name="content" Grid.Row="1" />
     </Grid>
 </Window>
