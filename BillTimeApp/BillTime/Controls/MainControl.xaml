@@ -32,7 +32,23 @@
         </StackPanel>
 
         <!-- Row 2 -->
+        <StackPanel Orientation="Vertical" Grid.Row="2">
+            <StackPanel Orientation="Vertical">
+                <TextBlock>Title</TextBlock>
+                <TextBlock x:Name="titleTextbox"/>
+            </StackPanel>
+        </StackPanel>
 
+        <!-- Row 3 -->
+        <StackPanel Orientation="Vertical" Grid.Row="3">
+            <StackPanel Orientation="Vertical">
+                <TextBlock>Description</TextBlock>
+                <TextBlock x:Name="descriptionTextbox"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Row 4 -->
+            <Button x:Name="submitForm" Grid.Row="4">Submit</Button>
 
     </Grid>
 </UserControl>
