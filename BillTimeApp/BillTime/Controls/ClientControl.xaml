@@ -5,10 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BillTime.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="350" Background="White">
+             d:DesignHeight="500" Background="White" Width="320">
     <Grid>
-        
+
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -16,9 +18,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <!-- Row 0 -->
 
+        <!-- Row 0 -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5 5 5 10">
             <StackPanel>
                 <TextBlock>Client</TextBlock>
@@ -52,12 +53,30 @@
 
         <!-- Row 4 -->
         <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5 5 5 10">
-            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical" Margin="0 0 10 0">
                 <TextBlock>Cut Off Number</TextBlock>
-                <TextBox></TextBox>
+                <TextBox x:Name="cutOffTextbox"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <TextBlock>Minimum Hours</TextBlock>
+                <TextBox x:Name="minimumHoursTextbox"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Row 5 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical" Margin="0 0 10 0">
+                <TextBlock>Billing Increment</TextBlock>
+                <TextBox x:Name="billingIncrementTextbox"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <TextBlock>Round Up (minutes)</TextBlock>
+                <TextBox x:Name="roundUpAfterXMinuteTextbox"/>
             </StackPanel>
         </StackPanel>
 
-
+        <!-- Row 6 -->
+        <Button x:Name="submitForm" Grid.Row="6" Padding="0 15" Margin="5 5 5 10"
+                >Submit</Button>
     </Grid>
 </UserControl>
