@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BillTime.Controls"
              mc:Ignorable="d"  Background="White" FontSize="18"
-             d:DesignHeight="425"  Width="290">
+             d:DesignHeight="450"  Width="290">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -46,8 +46,25 @@
 
         <!-- Row 3 -->
         <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5 5 5 10">
-            <CheckBox x:Name="preBillCheckbox" Margin="0 0 10 0">Pre-bill Client</CheckBox>
-            <CheckBox x:Name="hasCutOffCheckbox">Cut off Client</CheckBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="0 0 10 0">Pre-bill Client</TextBlock>
+                <CheckBox x:Name="preBillCheckbox" Margin="112,7,2,-7" Grid.ColumnSpan="2"
+                          />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock>Cut off Client</TextBlock>
+                <CheckBox x:Name="hasCutOffCheckbox" Margin="112,7,2,-7" Grid.ColumnSpan="2"/>
+            </Grid>
         </StackPanel>
 
         <!-- Row 4 -->
@@ -61,7 +78,7 @@
                 <TextBox x:Name="minimumHoursTextbox"/>
             </StackPanel>
         </StackPanel>
-        
+
         <!-- Row 5 -->
         <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 10 0">
@@ -75,7 +92,6 @@
         </StackPanel>
 
         <!-- Row 6 -->
-        <Button x:Name="submitForm" Grid.Row="6" Padding="0 15" Margin="5 5 5 10"
-                >Submit</Button>
+        <Button x:Name="submitForm" Grid.Row="6" Padding="10 15" Margin="5 5 5 10" Width="100">Submit</Button>
     </Grid>
 </UserControl>
