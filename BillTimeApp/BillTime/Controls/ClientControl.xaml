@@ -17,8 +17,17 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
+        <!-- Row 0 -->
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5 5 5 10">
+            <StackPanel>
+                <TextBlock>Client</TextBlock>
+                <ComboBox x:Name="clientDropDown" Width="150" />
+            </StackPanel>
+            <Button x:Name="editButton" >Edit</Button>
+            <Button x:Name="newButton" >New</Button>
+
+        </StackPanel>
         
-        
-            
     </Grid>
 </UserControl>
