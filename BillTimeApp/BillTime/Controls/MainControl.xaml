@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BillTime.Controls" FontFamily="Open Sans"
              mc:Ignorable="d" FontSize="18" Background="White"
-             d:DesignHeight="450" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="500">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -26,7 +27,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 20 0">
                 <TextBlock>Hours</TextBlock>
-                <TextBlock x:Name="hoursTextbox" Height="31" Width="66"/>
+                <TextBox x:Name="hoursTextbox" Height="31" Width="66"/>
             </StackPanel>
             <Button x:Name="operateTime" Padding="15 0" Margin="0 5">Start Timer</Button>
         </StackPanel>
@@ -35,14 +36,15 @@
         <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical">
                 <TextBlock>Title</TextBlock>
-                <TextBlock x:Name="titleTextbox"/>
+                <TextBox x:Name="titleTextbox"/>
             </StackPanel>
         </StackPanel>
 
         <!-- Row 3 -->
         <StackPanel Orientation="Vertical" Grid.Row="3" Margin="5 5 5 10">
                 <TextBlock>Description</TextBlock>
-                <TextBlock x:Name="descriptionTextbox" TextWrapping="Wrap"/>
+                <TextBox x:Name="descriptionTextbox" TextWrapping="Wrap"
+                         AcceptsReturn="True" Height="80"/>
         </StackPanel>
         
         <!-- Row 4 -->

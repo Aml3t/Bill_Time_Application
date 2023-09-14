@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BillTime.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace BillTime
         public MainWindow()
         {
             InitializeComponent();
+            content.Content = new MainControl();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

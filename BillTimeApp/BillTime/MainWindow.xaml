@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BillTime"
         mc:Ignorable="d"
-        Title="Bill Time Application By Aml3t" Height="450" Width="800">
+        Title="Bill Time Application By Aml3t" Height="450" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -26,6 +26,6 @@
                 <MenuItem x:Name="aboutMenuItem" Header="_About" />
             </MenuItem>
         </Menu>
-        <ContentControl x:Name="content" Grid.Row="1" />
+        <ContentControl x:Name="content" Grid.Row="1" Margin="20 0 20 20" />
     </Grid>
 </Window>
