@@ -24,10 +24,40 @@
                 <TextBlock>Client</TextBlock>
                 <ComboBox x:Name="clientDropDown" Width="150" />
             </StackPanel>
-            <Button x:Name="editButton" >Edit</Button>
-            <Button x:Name="newButton" >New</Button>
-
+            <Button x:Name="editButton" Padding="5 2" Margin="5 0" VerticalAlignment="Bottom">Edit</Button>
+            <Button x:Name="newButton" Padding="5 2" Margin="0 0 5 0" VerticalAlignment="Bottom">New</Button>
         </StackPanel>
-        
+
+        <!-- Row 1 -->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical">
+                <TextBlock>Name</TextBlock>
+                <TextBox x:Name="nameTextbox"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Row 2 -->
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical">
+                <TextBlock>Email</TextBlock>
+                <TextBox x:Name="emailTextbox"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Row 3 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5 5 5 10">
+            <CheckBox x:Name="preBillCheckbox" Margin="0 0 10 0">Pre-bill Client</CheckBox>
+            <CheckBox x:Name="hasCutOffCheckbox">Cut off Client</CheckBox>
+        </StackPanel>
+
+        <!-- Row 4 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
+                <TextBlock>Cut Off Number</TextBlock>
+                <TextBox></TextBox>
+            </StackPanel>
+        </StackPanel>
+
+
     </Grid>
 </UserControl>
