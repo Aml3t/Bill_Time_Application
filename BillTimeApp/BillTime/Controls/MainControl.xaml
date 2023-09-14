@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BillTime.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:local="clr-namespace:BillTime.Controls" FontFamily="Open Sans"
+             mc:Ignorable="d" FontSize="18" Background="White"
+             d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -17,22 +17,22 @@
         </Grid.RowDefinitions>
             
         <!-- Row 0 -->
-        <StackPanel Orientation="Vertical" Grid.Row="0">
-            <TextBlock>Client</TextBlock>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="5 5 5 10">
+            <TextBlock FontSize="20">Client</TextBlock>
             <ComboBox x:Name="clientDropDown" />
         </StackPanel>
     
         <!-- Row 1 -->
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
                 <TextBlock>Hours</TextBlock>
-                <TextBlock x:Name="hoursTextbox"/>
+                <TextBlock x:Name="hoursTextbox" Height="31" Width="66"/>
             </StackPanel>
-            <Button x:Name="operateTime">Start Timer</Button>
+            <Button x:Name="operateTime" Padding="15 0" Margin="0 5">Start Timer</Button>
         </StackPanel>
 
         <!-- Row 2 -->
-        <StackPanel Orientation="Vertical" Grid.Row="2">
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical">
                 <TextBlock>Title</TextBlock>
                 <TextBlock x:Name="titleTextbox"/>
@@ -40,15 +40,14 @@
         </StackPanel>
 
         <!-- Row 3 -->
-        <StackPanel Orientation="Vertical" Grid.Row="3">
-            <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="5 5 5 10">
                 <TextBlock>Description</TextBlock>
-                <TextBlock x:Name="descriptionTextbox"/>
-            </StackPanel>
+                <TextBlock x:Name="descriptionTextbox" TextWrapping="Wrap"/>
         </StackPanel>
         
         <!-- Row 4 -->
-            <Button x:Name="submitForm" Grid.Row="4">Submit</Button>
+        <Button x:Name="submitForm" Grid.Row="4" Padding="0 15" Margin="5 5 5 10"
+                >Submit</Button>
 
     </Grid>
 </UserControl>
