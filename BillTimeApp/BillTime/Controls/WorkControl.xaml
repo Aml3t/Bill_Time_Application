@@ -5,11 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BillTime.Controls"
              mc:Ignorable="d" Background="White" FontSize="18"
-             d:DesignHeight="525
-             "  Width="290">
+             d:DesignHeight="550  "  Width="290">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -60,21 +58,25 @@
         </StackPanel>
 
         <!-- Row 6-->
-        <StackPanel Orientation="Vertical" Grid.Row="6" Margin="5 5 5 10">
-            <TextBlock>Payment Done</TextBlock>
-            <StackPanel Orientation="Vertical">
-                <ComboBox x:Name="paymentDropBox"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="5 5 5 10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,6,10,2">Paid</TextBlock>
+                <CheckBox x:Name="paidCheckbox" Margin="37,12,2,1" Grid.ColumnSpan="2"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="5 5 5 10">
+                <TextBlock Margin="0 0 10 0">Payment</TextBlock>
+                <ComboBox x:Name="paymentDropDown" Width="140"/>
             </StackPanel>
         </StackPanel>
 
-
-
         <!-- Row 7 -->
         <Button x:Name="submitForm" Grid.Row="7" Width="100"
-        Margin="5 5 5 15" Padding="5 5" 
-        >Submit</Button>
-
+                Margin="5 -2 5 10" Padding="10 1" 
+                >Submit</Button>
 
     </Grid>
-
 </UserControl>

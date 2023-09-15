@@ -24,7 +24,7 @@ namespace BillTime
         public MainWindow()
         {
             InitializeComponent();
-            content.Content = new PaymentsControl();
+            content.Content = new WorkControl();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
