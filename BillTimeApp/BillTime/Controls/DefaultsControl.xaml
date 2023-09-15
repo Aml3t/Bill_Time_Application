@@ -15,9 +15,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <!-- Row 0 -->
 
+        <!-- Row 0 -->
         <StackPanel Orientation="Vertical" Grid.Row="0" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 100 0">
                 <TextBlock>Hourly Rate</TextBlock>
@@ -27,7 +26,7 @@
 
         <!-- Row 1 -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5 5 5 10">
-           
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -36,7 +35,7 @@
                 <TextBlock Margin="0 0 10 0">Pre-bill Client</TextBlock>
                 <CheckBox x:Name="preBillCheckbox" Margin="112,7,2,-7" Grid.ColumnSpan="2"/>
             </Grid>
-            
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -45,8 +44,32 @@
                 <TextBlock Margin="10 0 0 0">Cut off Client</TextBlock>
                 <CheckBox x:Name="hasCutOffCheckbox" Margin="120,7,2,-7" Grid.ColumnSpan="2"/>
             </Grid>
-            
+
         </StackPanel>
 
+        <!-- Row 2-->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical" Margin="0 0 10 0">
+                <TextBlock>Cut Off Number</TextBlock>
+                <TextBox x:Name="cutOffTextbox"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <TextBlock>Minimum Hours</TextBlock>
+                <TextBox x:Name="minimumHoursTextbox"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Row 3 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5 5 5 10">
+            <StackPanel Orientation="Vertical" Margin="0 0 10 0">
+                <TextBlock>Billing Increment</TextBlock>
+                <TextBox x:Name="billingIncrementTextbox"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <TextBlock>Round Up (min.)</TextBlock>
+                <TextBox x:Name="roundUpAfterXMinuteTextbox"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
+    
 </UserControl>
