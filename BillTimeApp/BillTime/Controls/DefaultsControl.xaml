@@ -17,15 +17,18 @@
         </Grid.RowDefinitions>
 
         <!-- Row 0 -->
-        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="5 5 5 10">
+            <TextBlock FontSize="24" HorizontalAlignment="Center">Defaults Options</TextBlock>
+        
+        <!-- Row 1 -->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 100 0">
                 <TextBlock>Hourly Rate</TextBlock>
                 <TextBox Margin="0 0 80 0" x:Name="hourlyRateTextBox"/>
             </StackPanel>
         </StackPanel>
 
-        <!-- Row 1 -->
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5 5 5 10">
+        <!-- Row 2 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5 5 5 10">
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -47,8 +50,8 @@
 
         </StackPanel>
 
-        <!-- Row 2-->
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5 5 5 10">
+        <!-- Row 3-->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 10 0">
                 <TextBlock>Cut Off Number</TextBlock>
                 <TextBox x:Name="cutOffTextbox"/>
@@ -59,8 +62,8 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- Row 3 -->
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5 5 5 10">
+        <!-- Row 4 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 10 0">
                 <TextBlock>Billing Increment</TextBlock>
                 <TextBox x:Name="billingIncrementTextbox"/>
@@ -70,6 +73,11 @@
                 <TextBox x:Name="roundUpAfterXMinuteTextbox"/>
             </StackPanel>
         </StackPanel>
+
+        <!-- Row 5 -->
+        <Button x:Name="submitForm" Grid.Row="5" Width="100"
+                Margin="5 5 5 10" Padding="5 10" 
+                >Submit</Button>
+
     </Grid>
-    
 </UserControl>
