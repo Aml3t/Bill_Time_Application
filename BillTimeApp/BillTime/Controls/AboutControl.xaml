@@ -21,12 +21,12 @@
         </Grid.RowDefinitions>
 
         <!-- Row 0 -->
-        <TextBlock FontSize="24" Grid.Row="0" HorizontalAlignment="Center">About</TextBlock>
+        <TextBlock FontSize="24" Grid.Row="0" HorizontalAlignment="Center" FontWeight="Bold">About</TextBlock>
 
         <!-- Row 1 -->
-        <TextBlock FontSize="42" Grid.Row="1" HorizontalAlignment="Center"
-                   Margin="0 20 0 10" Foreground="#FFEF6423" FontFamily="Open Sans SemiBold">
-            Bill Time App
+        <TextBlock FontSize="25" Grid.Row="1" HorizontalAlignment="Center"
+                   Margin="0 20 0 10" Foreground="#FF234BEF" FontFamily="Open Sans SemiBold">
+            Billing Time Appplication
         </TextBlock>
 
         <!-- Row 2 -->
@@ -36,22 +36,22 @@
         </TextBlock>
 
         <!-- Row 3 -->
-        <TextBlock FontSize="18" Grid.Row="3" HorizontalAlignment="Center"
-                   Margin="5 0 5 20" Foreground="#FFEF6423" FontFamily="Open Sans"
+        <TextBlock FontSize="19" Grid.Row="3" HorizontalAlignment="Center"
+                   Margin="5 0 5 20" Foreground="#FF234BEF" FontFamily="Open Sans"
                    TextWrapping="Wrap">
-            This application was built to show off SQLite as well as the basics of
-            WPF. It is a demo application to help a developer test what they have learned
-            from the basics of these two technologies.
+            This application was built to showcase SQLite as well as WPF knowledge.
+            Additionally, it is a fully functional little program that can be used
+            for billing purposes by various professionals like lawyers, programmers, etc.
         </TextBlock>
 
         <!-- Row 4 -->
-        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="0 20 0 20">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="0 30 0 20">
             <TextBlock FontSize="22" HorizontalAlignment="Center"
-                   Foreground="#FFEF6423" FontFamily="Open Sans SemiBold">
+                   Foreground="#FFEF235B" FontFamily="Open Sans SemiBold">
                 For more information:
             </TextBlock>
-            <TextBlock HorizontalAlignment="Center">
-                <Hyperlink NavigateUri="https://github.com/Aml3t">
+            <TextBlock HorizontalAlignment="Center" Margin="10 10 10 10">
+                <Hyperlink NavigateUri="https://github.com/Aml3t" FontWeight="Bold">
                     https://github.com/Aml3t
                 </Hyperlink>
             </TextBlock>
