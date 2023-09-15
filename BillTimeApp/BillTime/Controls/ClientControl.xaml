@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <!-- Row 0 -->
-        <TextBlock FontSize="24" HorizontalAlignment="Center">Clients Info</TextBlock>
+        <TextBlock FontSize="24" HorizontalAlignment="Center" Grid.Row="0">Clients Info</TextBlock>
 
 
         <!-- Row 1 -->

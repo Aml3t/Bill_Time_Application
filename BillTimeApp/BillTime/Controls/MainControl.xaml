@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <!-- Row 0 -->
-        <TextBlock FontSize="24" HorizontalAlignment="Center">Time Entry</TextBlock>
+        <TextBlock FontSize="24" HorizontalAlignment="Center" Grid.Row="0">Time Entry</TextBlock>
 
         <!-- Row 1 -->
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
