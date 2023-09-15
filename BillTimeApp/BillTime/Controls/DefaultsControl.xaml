@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BillTime.Controls"
              mc:Ignorable="d" Background="White" FontSize="18"
-             d:DesignHeight="500" d:DesignWidth="350">
+             d:DesignHeight="450"  Width="290">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -21,24 +21,31 @@
         <StackPanel Orientation="Vertical" Grid.Row="0" Margin="5 5 5 10">
             <StackPanel Orientation="Vertical" Margin="0 0 100 0">
                 <TextBlock>Hourly Rate</TextBlock>
-                <TextBox Margin="0 0 100 0" x:Name="hourlyRateTextBox"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="0 0 100 0">
-                <TextBlock>PreBill Rate</TextBlock>
-                <TextBox Margin="0 0 100 0" x:Name="preBillRateTextBox"/>
+                <TextBox Margin="0 0 80 0" x:Name="hourlyRateTextBox"/>
             </StackPanel>
         </StackPanel>
 
         <!-- Row 1 -->
-        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
-            <StackPanel Orientation="Vertical" Margin="0 0 100 0">
-                <TextBlock Margin="0 0 0 0">Cut Off</TextBlock>
-                <TextBox Margin="0 0 100 0" x:Name="cutOffTextBox"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="0 0 100 0">
-                <TextBlock>Minimum Hours</TextBlock>
-                <TextBox Margin="0 0 100 0" x:Name="minimumHoursTextBox"/>
-            </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5 5 5 10">
+           
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0 0 10 0">Pre-bill Client</TextBlock>
+                <CheckBox x:Name="preBillCheckbox" Margin="112,7,2,-7" Grid.ColumnSpan="2"/>
+            </Grid>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10 0 0 0">Cut off Client</TextBlock>
+                <CheckBox x:Name="hasCutOffCheckbox" Margin="120,7,2,-7" Grid.ColumnSpan="2"/>
+            </Grid>
+            
         </StackPanel>
 
     </Grid>

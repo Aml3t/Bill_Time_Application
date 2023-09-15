@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BillTime"
         mc:Ignorable="d"
-        Title="Bill Time Application By Aml3t" Height="525" Width="350" WindowStartupLocation="CenterScreen">
+        Title="Bill Time Application By Aml3t" Height="600" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
