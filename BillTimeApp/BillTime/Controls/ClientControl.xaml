@@ -94,8 +94,6 @@
         <!-- Row 6 -->
         <Button x:Name="submitForm" Grid.Row="6" Width="100"
                 Margin="5 5 5 10" Padding="5 10" 
-
-
                 >Submit</Button>
     </Grid>
 </UserControl>
