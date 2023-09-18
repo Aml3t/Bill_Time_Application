@@ -24,5 +24,10 @@ namespace BillTime.Controls
         {
             InitializeComponent();
         }
+
+        private void LoadDefaultsFromDatabase()
+        {
+
+        }
     }
 }
