@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BillTimeLibrary.DataAccess;
+using BillTimeLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +29,14 @@ namespace BillTime.Controls
 
         private void LoadDefaultsFromDatabase()
         {
+            string sql = "select * from Defaults";
+            DefaultsModel model = SqliteDataAccess.LoadData<DefaultsModel>(sql, new Dictionary<string, object>()).FirstOrDefault();
 
+            if (model != null)
+            {
+                hourlyRateTextBox.Text = model.HourlyRate.ToString();
+                preBillCheckbox.IsChecked = (model.PreBill > 0); // Checking if the PreBill is true, meaning > 0. 
+            }
         }
     }
 }
