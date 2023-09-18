@@ -46,7 +46,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Margin="10 0 0 0">Cut off Client</TextBlock>
-                <CheckBox x:Name="hasCutOffCheckbox" Margin="120,7,2,-7" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="hasCutoffCheckbox" Margin="120,7,2,-7" Grid.ColumnSpan="2"/>
             </Grid>
 
         </StackPanel>

@@ -36,11 +36,21 @@ namespace BillTime.Controls
             {
                 hourlyRateTextBox.Text = model.HourlyRate.ToString();
                 preBillCheckbox.IsChecked = (model.PreBill > 0); // Checking if the PreBill is true, meaning > 0. 
-                hasCutOffCheckbox.IsChecked = (model.HasCutOff > 0);
+                hasCutoffCheckbox.IsChecked = (model.HasCutOff > 0);
                 cutOffTextbox.Text = model.CutOff.ToString();
                 minimumHoursTextbox.Text = model.MinimumHour.ToString();
                 billingIncrementTextbox.Text = model.BillingIncrement.ToString();
                 roundUpAfterXMinuteTextbox.Text = model.RoundUpAfterXMinutes.ToString();
+            }
+            else
+            {
+                hourlyRateTextBox.Text = "0";
+                preBillCheckbox.IsChecked = true;
+                hasCutoffCheckbox.IsChecked = false;
+                cutOffTextbox.Text = "0";
+                minimumHoursTextbox.Text = "0.25";
+                billingIncrementTextbox.Text = "0.25";
+                roundUpAfterXMinuteTextbox.Text = "0";
 
             }
         }
