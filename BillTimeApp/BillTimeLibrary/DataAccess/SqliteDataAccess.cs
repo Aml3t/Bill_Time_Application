@@ -15,7 +15,7 @@ namespace BillTimeLibrary.DataAccess
         {
             DynamicParameters p = new DynamicParameters();
 
-            parameters.ToList().ForEach(x => p.Add(x.Key, x.Value)); // One lines but compact that the other manual labour.
+            parameters.ToList().ForEach(x => p.Add(x.Key, x.Value)); // Oneliner but more compact that the other manual labour.
             //foreach (var param in parameters)
             //{
             //    p.Add(param.Key, param.Value);
@@ -24,6 +24,18 @@ namespace BillTimeLibrary.DataAccess
             {
                 var rows = connection.Query<T>(sqlStatement, p);
                 return rows.ToList();
+            }
+        }
+
+        public static void SaveData(string sqlStatement, Dictionary<string, object> parameters, string connectionName = "Default")
+        {
+            DynamicParameters p = new DynamicParameters();
+
+            parameters.ToList().ForEach(x => p.Add(x.Key, x.Value));
+
+            using (IDbConnection connection = new SQLiteConnection(DataAccessHelpers.LoadCoonnectionString(connectionName)))
+            {
+                var rows = connection.Execute(sqlStatement, p);
             }
         }
     }
