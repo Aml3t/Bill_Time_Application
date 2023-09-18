@@ -59,6 +59,12 @@ namespace BillTime.Controls
         {
             bool output = true;
 
+
+            if (double.TryParse(hourlyRateTextBox.Text, out double hourlyRate) ==  false)
+            {
+                output = false;
+            }
+
             return output;
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
