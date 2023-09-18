@@ -9,7 +9,7 @@ namespace BillTimeLibrary.DataAccess
 {
     public class DataAccessHelpers
     {
-        internal static string LoadCoonnectionString(string id = "Default")
+        internal static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }

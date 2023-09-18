@@ -25,6 +25,8 @@ namespace BillTime.Controls
         public DefaultsControl()
         {
             InitializeComponent();
+            LoadDefaultsFromDatabase();
+            
         }
 
         private void LoadDefaultsFromDatabase()
@@ -51,8 +53,18 @@ namespace BillTime.Controls
                 minimumHoursTextbox.Text = "0.25";
                 billingIncrementTextbox.Text = "0.25";
                 roundUpAfterXMinuteTextbox.Text = "0";
-
             }
+        }
+        private bool ValidateForm()
+        {
+            bool output = true;
+
+            return output;
+        }
+        private void submitForm_Click(object sender, RoutedEventArgs e)
+        {
+            string sql = "";
+            SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
         }
     }
 }

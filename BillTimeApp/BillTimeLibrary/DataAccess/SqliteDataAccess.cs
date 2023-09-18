@@ -24,7 +24,7 @@ namespace BillTimeLibrary.DataAccess
             //    p.Add(param.Key, param.Value);
             //}
 
-            using (IDbConnection connection = new SQLiteConnection(DataAccessHelpers.LoadCoonnectionString(connectionName)))
+            using (IDbConnection connection = new SQLiteConnection(DataAccessHelpers.LoadConnectionString(connectionName)))
             {
                 var rows = connection.Query<T>(sqlStatement, p);
                 return rows.ToList();
@@ -35,7 +35,7 @@ namespace BillTimeLibrary.DataAccess
         {
             DynamicParameters p = parameters.ToDynamicParameters();
 
-            using (IDbConnection connection = new SQLiteConnection(DataAccessHelpers.LoadCoonnectionString(connectionName)))
+            using (IDbConnection connection = new SQLiteConnection(DataAccessHelpers.LoadConnectionString(connectionName)))
             {
                 var rows = connection.Execute(sqlStatement, p);
             }
