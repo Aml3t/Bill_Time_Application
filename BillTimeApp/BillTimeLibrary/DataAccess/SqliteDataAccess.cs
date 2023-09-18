@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BillTimeLibrary.DataAccess
 {
-    public class SqliteDataAccess
+    public static class SqliteDataAccess
     {
         public static List<T> LoadData<T>(string sqlStatement, Dictionary<string, object> parameters, string connectionName = "Default")
         {
@@ -38,5 +38,14 @@ namespace BillTimeLibrary.DataAccess
                 var rows = connection.Execute(sqlStatement, p);
             }
         }
+
+        private static DynamicParameters DapperCreator(Dictionary<string, object> parameters)
+        {
+            DynamicParameters p = new DynamicParameters();
+
+            return parameters.ToList().ForEach(x => p.Add(x.Key, x.Value));
+        }
+
+
     }
 }
