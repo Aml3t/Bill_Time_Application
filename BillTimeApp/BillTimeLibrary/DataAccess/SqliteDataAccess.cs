@@ -13,9 +13,10 @@ namespace BillTimeLibrary.DataAccess
     {
         public static List<T> LoadData<T>(string sqlStatement, Dictionary<string, object> parameters, string connectionName = "Default")
         {
-            DynamicParameters p = new DynamicParameters();
+            parameters.ToDynamicParameters();
+            //DynamicParameters p = new DynamicParameters();
 
-            parameters.ToList().ForEach(x => p.Add(x.Key, x.Value)); // Oneliner but more compact that the other manual labour.
+            //parameters.ToList().ForEach(x => p.Add(x.Key, x.Value)); // Oneliner but more compact that the other manual labour.
             //foreach (var param in parameters)
             //{
             //    p.Add(param.Key, param.Value);
@@ -39,11 +40,13 @@ namespace BillTimeLibrary.DataAccess
             }
         }
 
-        private static DynamicParameters DapperCreator(Dictionary<string, object> parameters)
+        private static DynamicParameters ToDynamicParameters(this Dictionary<string, object> parameters)
         {
-            DynamicParameters p = new DynamicParameters();
+            DynamicParameters output = new DynamicParameters();
 
-            return parameters.ToList().ForEach(x => p.Add(x.Key, x.Value));
+            parameters.ToList().ForEach(x => output.Add(x.Key, x.Value));
+
+            return output;
         }
 
 
