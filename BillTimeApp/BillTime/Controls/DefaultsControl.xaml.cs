@@ -55,47 +55,51 @@ namespace BillTime.Controls
                 roundUpAfterXMinuteTextbox.Text = "0";
             }
         }
-        private (bool isValid, DefaultsModel) ValidateForm()
+        private (bool isValid, DefaultsModel model) ValidateForm()
         {
             bool isValid = true;
-
             DefaultsModel model = new DefaultsModel();
 
             try
             {
-                model.HasCutOff = (bool)(hasCutoffCheckbox.IsChecked) ? 1 : 0;
+                model.PreBill = (bool)preBillCheckbox.IsChecked ? 1 : 0;
+                model.HasCutOff = (bool)hasCutoffCheckbox.IsChecked ? 1 : 0;
                 model.HourlyRate = double.Parse(hourlyRateTextBox.Text);
                 model.CutOff = int.Parse(cutOffTextbox.Text);
                 model.MinimumHour = double.Parse(minimumHoursTextbox.Text);
                 model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
                 model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
 
-
             }
             catch
             {
-
                 isValid = false;
-                MessageBox.Show("Wrong hourly rate value. Please enter a valid one.");
             }
 
-
-            //// TryParse concept. Will go for try -> catch in order to fill all the parses
-            //if (double.TryParse(hourlyRateTextBox.Text, out double hourlyRate) ==  false)
-            //{
-            //    output = false;
-            //    MessageBox.Show("Wrong hourly rate value. Please enter a valid one.");
-            //}
-            //else
-            //{
-            //    hourlyRateTextBox.Text = hourlyRate.ToString();
-            //}
             return (isValid, model);
+        }
+
+        private void SaveToDatabase(DefaultsModel model)
+        {
+            DefaultsModel output = new DefaultsModel();
+            output.PreBill = model.PreBill;
+
+
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
-            string sql = "";
-            SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
+            var form = ValidateForm();
+
+            if (form.isValid == true)
+            {
+                SaveToDatabase(form.model);
+
+            }
+            else
+            {
+                MessageBox.Show("You have wrong values somewhere. Please enter valid ones.");
+                return;
+            }
         }
     }
 }
