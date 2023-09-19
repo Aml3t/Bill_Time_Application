@@ -89,7 +89,16 @@ namespace BillTime.Controls
                 + "(@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
 
 
-
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@HourlyRate", model.HourlyRate },
+                {"@PreBill", model.PreBill},
+                {"@HasCutOff", model.HasCutOff },
+                {"@CutOff", model.CutOff },
+                {"@MinimumHours", model.MinimumHour },
+                {"@BillingIncrement", model.BillingIncrement },
+                {"@RoundUpAfterXMinutes", model.RoundUpAfterXMinutes },
+            };
 
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
