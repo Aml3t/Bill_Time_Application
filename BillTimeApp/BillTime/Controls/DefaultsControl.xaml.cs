@@ -59,17 +59,28 @@ namespace BillTime.Controls
         {
             bool output = true;
 
-
-            if (double.TryParse(hourlyRateTextBox.Text, out double hourlyRate) ==  false)
+            try
             {
+                double.Parse(hourlyRateTextBox.Text);
+            }
+            catch
+            {
+
                 output = false;
                 MessageBox.Show("Wrong hourly rate value. Please enter a valid one.");
             }
-            else
-            {
-                hourlyRateTextBox.Text = hourlyRate.ToString();
-            }
 
+
+            //// TryParse concept. Will go for try -> catch in order to fill all the parses
+            //if (double.TryParse(hourlyRateTextBox.Text, out double hourlyRate) ==  false)
+            //{
+            //    output = false;
+            //    MessageBox.Show("Wrong hourly rate value. Please enter a valid one.");
+            //}
+            //else
+            //{
+            //    hourlyRateTextBox.Text = hourlyRate.ToString();
+            //}
             return output;
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
