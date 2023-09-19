@@ -63,6 +63,11 @@ namespace BillTime.Controls
             if (double.TryParse(hourlyRateTextBox.Text, out double hourlyRate) ==  false)
             {
                 output = false;
+                MessageBox.Show("Wrong hourly rate value. Please enter a valid one.");
+            }
+            else
+            {
+                hourlyRateTextBox.Text = hourlyRate.ToString();
             }
 
             return output;
