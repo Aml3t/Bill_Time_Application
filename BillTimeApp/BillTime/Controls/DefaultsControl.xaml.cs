@@ -26,7 +26,7 @@ namespace BillTime.Controls
         {
             InitializeComponent();
             LoadDefaultsFromDatabase();
-            
+
         }
 
         private void LoadDefaultsFromDatabase()
@@ -55,18 +55,27 @@ namespace BillTime.Controls
                 roundUpAfterXMinuteTextbox.Text = "0";
             }
         }
-        private bool ValidateForm()
+        private (bool isValid, DefaultsModel) ValidateForm()
         {
-            bool output = true;
+            bool isValid = true;
+
+            DefaultsModel model = new DefaultsModel();
 
             try
             {
-                double.Parse(hourlyRateTextBox.Text);
+                model.HasCutOff = (bool)(hasCutoffCheckbox.IsChecked) ? 1 : 0;
+                model.HourlyRate = double.Parse(hourlyRateTextBox.Text);
+                model.CutOff = int.Parse(cutOffTextbox.Text);
+                model.MinimumHour = double.Parse(minimumHoursTextbox.Text);
+                model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
+                model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
+
+
             }
             catch
             {
 
-                output = false;
+                isValid = false;
                 MessageBox.Show("Wrong hourly rate value. Please enter a valid one.");
             }
 
@@ -81,7 +90,7 @@ namespace BillTime.Controls
             //{
             //    hourlyRateTextBox.Text = hourlyRate.ToString();
             //}
-            return output;
+            return (isValid, model);
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
