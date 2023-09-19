@@ -81,8 +81,12 @@ namespace BillTime.Controls
 
         private void SaveToDatabase(DefaultsModel model)
         {
-            DefaultsModel output = new DefaultsModel();
-            output.PreBill = model.PreBill;
+            string sql = "delete from Defaults";
+
+            SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
+
+            sql = "insert into Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) "
+                + "(@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
 
 
         }
