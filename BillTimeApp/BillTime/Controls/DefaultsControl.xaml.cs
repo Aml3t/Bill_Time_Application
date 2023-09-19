@@ -89,6 +89,8 @@ namespace BillTime.Controls
                 + "(@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
 
 
+
+
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
