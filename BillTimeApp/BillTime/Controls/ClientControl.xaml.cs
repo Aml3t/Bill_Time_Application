@@ -27,7 +27,17 @@ namespace BillTime.Controls
         public ClientControl()
         {
             InitializeComponent();
+
             InitializeClientList();
+
+            WireUpClientDropDown();
+        }
+
+        private void WireUpClientDropDown()
+        {
+            clientDropDown.ItemsSource = clients;
+            clientDropDown.DisplayMemberPath = "Name";
+            clientDropDown.SelectedValuePath = "Id";
         }
 
         private void InitializeClientList()
