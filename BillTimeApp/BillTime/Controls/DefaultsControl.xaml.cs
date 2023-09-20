@@ -86,7 +86,10 @@ namespace BillTime.Controls
             SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
 
             sql = "insert into Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) "
-                + "(@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
+                  +"(@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
+
+            //"INSERT INTO Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) " +
+            //      "VALUES (@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
 
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
@@ -99,6 +102,8 @@ namespace BillTime.Controls
                 {"@BillingIncrement", model.BillingIncrement },
                 {"@RoundUpAfterXMinutes", model.RoundUpAfterXMinutes },
             };
+
+            SqliteDataAccess.SaveData(sql, parameters);
 
         }
         private void submitForm_Click(object sender, RoutedEventArgs e)
