@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BillTimeLibrary.DataAccess;
+using BillTimeLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,19 @@ namespace BillTime.Controls
     /// </summary>
     public partial class ClientControl : UserControl
     {
+        List<ClientModel> clients;
+
         public ClientControl()
         {
             InitializeComponent();
+            InitializeClientList();
+        }
+
+        private void InitializeClientList()
+        {
+            string sql = "select * from Client";
+
+            clients = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
         }
     }
 }
