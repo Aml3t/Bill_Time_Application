@@ -40,7 +40,7 @@ namespace BillTime.Controls
                 preBillCheckbox.IsChecked = (model.PreBill > 0); // Checking if the PreBill is true, meaning > 0. 
                 hasCutoffCheckbox.IsChecked = (model.HasCutOff > 0);
                 cutOffTextbox.Text = model.CutOff.ToString();
-                minimumHoursTextbox.Text = model.MinimumHour.ToString();
+                minimumHoursTextbox.Text = model.MinimumHours.ToString();
                 billingIncrementTextbox.Text = model.BillingIncrement.ToString();
                 roundUpAfterXMinuteTextbox.Text = model.RoundUpAfterXMinutes.ToString();
             }
@@ -66,7 +66,7 @@ namespace BillTime.Controls
                 model.HasCutOff = (bool)hasCutoffCheckbox.IsChecked ? 1 : 0;
                 model.HourlyRate = double.Parse(hourlyRateTextBox.Text);
                 model.CutOff = int.Parse(cutOffTextbox.Text);
-                model.MinimumHour = double.Parse(minimumHoursTextbox.Text);
+                model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
                 model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
                 model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
 
@@ -85,8 +85,8 @@ namespace BillTime.Controls
 
             SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
 
-            sql = "insert into Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) "
-                  +"(@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
+            sql = "insert into Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes)"
+                  + "VALUES (@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
 
             //"INSERT INTO Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) " +
             //      "VALUES (@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
@@ -98,7 +98,7 @@ namespace BillTime.Controls
                 {"@PreBill", model.PreBill},
                 {"@HasCutOff", model.HasCutOff },
                 {"@CutOff", model.CutOff },
-                {"@MinimumHours", model.MinimumHour },
+                {"@MinimumHours", model.MinimumHours },
                 {"@BillingIncrement", model.BillingIncrement },
                 {"@RoundUpAfterXMinutes", model.RoundUpAfterXMinutes },
             };
@@ -113,6 +113,7 @@ namespace BillTime.Controls
             if (form.isValid == true)
             {
                 SaveToDatabase(form.model);
+                MessageBox.Show("Data inserted successfully.");
 
             }
             else
