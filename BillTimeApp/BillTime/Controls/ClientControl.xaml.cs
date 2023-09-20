@@ -54,6 +54,7 @@ namespace BillTime.Controls
             //editButton.IsEnabled = false;
             clientStackPanel.Visibility = Visibility.Collapsed;
             editButton.Visibility = Visibility.Collapsed;
+            LoadDefaults();
 
         }
 
@@ -64,6 +65,26 @@ namespace BillTime.Controls
             //newButton.IsEnabled = false;
             clientStackPanel.Visibility = Visibility.Collapsed;
             newButton.Visibility = Visibility.Collapsed;
+
         }
+
+        private DefaultsModel LoadDefaults()
+        {
+            string sql = "select * from Defaults";
+
+            DefaultsModel defaultsModel = SqliteDataAccess.LoadData<DefaultsModel>(sql, new Dictionary<string, object>()).FirstOrDefault();
+
+            DefaultsModel output = new DefaultsModel();
+
+            output.HourlyRate = defaultsModel.HourlyRate;
+            output.PreBill = defaultsModel.PreBill;
+            output.HasCutOff = defaultsModel.HasCutOff;
+            output.MinimumHours = defaultsModel.MinimumHours;
+            output.BillingIncrement = defaultsModel.BillingIncrement;
+            output.RoundUpAfterXMinutes = defaultsModel.RoundUpAfterXMinutes;
+            
+            return defaultsModel;
+        }
+
     }
 }
