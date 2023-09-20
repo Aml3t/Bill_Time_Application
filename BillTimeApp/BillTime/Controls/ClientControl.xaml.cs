@@ -49,15 +49,21 @@ namespace BillTime.Controls
 
         private void newButton_Click(object sender, RoutedEventArgs e)
         {
-            clientStackPanel.IsEnabled = false;
-            editButton.IsEnabled = false;
+            //// Could be done like this
+            //clientStackPanel.IsEnabled = false;
+            //editButton.IsEnabled = false;
+            clientStackPanel.Visibility = Visibility.Collapsed;
+            editButton.Visibility = Visibility.Collapsed;
 
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            clientStackPanel.IsEnabled = false;
-            newButton.IsEnabled = false;
+            //// Could be done like this
+            //clientStackPanel.IsEnabled = false;
+            //newButton.IsEnabled = false;
+            clientStackPanel.Visibility = Visibility.Collapsed;
+            newButton.Visibility = Visibility.Collapsed;
         }
     }
 }
