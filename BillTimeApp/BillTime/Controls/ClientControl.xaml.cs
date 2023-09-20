@@ -46,5 +46,18 @@ namespace BillTime.Controls
 
             clients = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
         }
+
+        private void newButton_Click(object sender, RoutedEventArgs e)
+        {
+            clientStackPanel.IsEnabled = false;
+            editButton.IsEnabled = false;
+
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            clientStackPanel.IsEnabled = false;
+            newButton.IsEnabled = false;
+        }
     }
 }
