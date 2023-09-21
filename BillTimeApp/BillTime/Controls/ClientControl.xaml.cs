@@ -79,6 +79,8 @@ namespace BillTime.Controls
 
             if (model != null)
             {
+                nameTextbox.Text = "";
+                emailTextbox.Text = "";
                 hourlyRateTextbox.Text = model.HourlyRate.ToString();
                 preBillCheckbox.IsChecked = (model.PreBill > 0);
                 hasCutOffCheckbox.IsChecked = (model.HasCutOff > 0);
@@ -89,6 +91,8 @@ namespace BillTime.Controls
             }
             else
             {
+                nameTextbox.Text = "";
+                emailTextbox.Text = "";
                 hourlyRateTextbox.Text = "0";
                 preBillCheckbox.IsChecked = true;
                 hasCutOffCheckbox.IsChecked = false;
@@ -115,8 +119,20 @@ namespace BillTime.Controls
 
         private void InsertNewClient()
         {
-            string sql = "insert into Client (Name, HourlyRate, Email, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes"
-                + "Values (@Name, @HourlyRate, @Email, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
+            string sql = "insert into Client (Name, HourlyRate, Email," +
+                " PreBill, HasCutOff, CutOff, MinimumHours," +
+                " BillingIncrement, RoundUpAfterXMinutes"
+                + "values (@Name, @HourlyRate, @Email, @PreBill," +
+                " @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement," +
+                " @RoundUpAfterXMinutes)";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@Name", nameTextbox.Text },
+                { },
+            };
+
+            SqliteDataAccess.SaveData(sql, parameters);
         }
         private void UpdateClientRecord()
         {
