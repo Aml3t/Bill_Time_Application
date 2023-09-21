@@ -55,6 +55,7 @@ namespace BillTime.Controls
             clientStackPanel.Visibility = Visibility.Collapsed;
             editButton.Visibility = Visibility.Collapsed;
             LoadDefaults();
+            FillRemainingData();
 
         }
 
@@ -84,8 +85,23 @@ namespace BillTime.Controls
                 billingIncrementTextbox.Text = model.BillingIncrement.ToString();
                 roundUpAfterXMinuteTextbox.Text = model.RoundUpAfterXMinutes.ToString();
             }
-            
+            else
+            {
+                hourlyRateTextbox.Text = "0";
+                preBillCheckbox.IsChecked = true;
+                hasCutOffCheckbox.IsChecked = false;
+                cutOffTextbox.Text = "0";
+                minimumHoursTextbox.Text = "0.25";
+                billingIncrementTextbox.Text = "0.25";
+                roundUpAfterXMinuteTextbox.Text = "0";
+            }
         }
+
+        private ClientModel FillRemainingData()
+        {
+            return new ClientModel();
+        }
+
 
     }
 }

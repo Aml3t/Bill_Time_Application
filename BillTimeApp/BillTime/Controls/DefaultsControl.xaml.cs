@@ -26,7 +26,6 @@ namespace BillTime.Controls
         {
             InitializeComponent();
             LoadDefaultsFromDatabase();
-
         }
 
         private void LoadDefaultsFromDatabase()
@@ -38,7 +37,7 @@ namespace BillTime.Controls
             {
                 hourlyRateTextBox.Text = model.HourlyRate.ToString();
                 preBillCheckbox.IsChecked = (model.PreBill > 0); // Checking if the PreBill is true, meaning > 0. 
-                hasCutoffCheckbox.IsChecked = (model.HasCutOff > 0);
+                hasCutOffCheckbox.IsChecked = (model.HasCutOff > 0);
                 cutOffTextbox.Text = model.CutOff.ToString();
                 minimumHoursTextbox.Text = model.MinimumHours.ToString();
                 billingIncrementTextbox.Text = model.BillingIncrement.ToString();
@@ -48,7 +47,7 @@ namespace BillTime.Controls
             {
                 hourlyRateTextBox.Text = "0";
                 preBillCheckbox.IsChecked = true;
-                hasCutoffCheckbox.IsChecked = false;
+                hasCutOffCheckbox.IsChecked = false;
                 cutOffTextbox.Text = "0";
                 minimumHoursTextbox.Text = "0.25";
                 billingIncrementTextbox.Text = "0.25";
@@ -63,7 +62,7 @@ namespace BillTime.Controls
             try
             {
                 model.PreBill = (bool)preBillCheckbox.IsChecked ? 1 : 0;
-                model.HasCutOff = (bool)hasCutoffCheckbox.IsChecked ? 1 : 0;
+                model.HasCutOff = (bool)hasCutOffCheckbox.IsChecked ? 1 : 0;
                 model.HourlyRate = double.Parse(hourlyRateTextBox.Text);
                 model.CutOff = int.Parse(cutOffTextbox.Text);
                 model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
@@ -121,6 +120,11 @@ namespace BillTime.Controls
                 MessageBox.Show("You have wrong values somewhere. Please enter valid ones.");
                 return;
             }
+        }
+
+        private void submitForm_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

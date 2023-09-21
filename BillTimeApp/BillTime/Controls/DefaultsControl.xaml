@@ -46,7 +46,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Margin="10 0 0 0">Cut off Client</TextBlock>
-                <CheckBox x:Name="hasCutoffCheckbox" Margin="120,7,2,-7" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="hasCutOffCheckbox" Margin="120,7,2,-7" Grid.ColumnSpan="2"/>
             </Grid>
 
         </StackPanel>
@@ -77,7 +77,7 @@
 
         <!-- Row 5 -->
         <Button x:Name="submitForm" Grid.Row="5" Width="100"
-                Margin="5 5 5 15" Padding="5 5" Click="submitForm_Click"
+                Margin="5 5 5 15" Padding="5 5"
                 >Submit</Button>
 
     </Grid>
