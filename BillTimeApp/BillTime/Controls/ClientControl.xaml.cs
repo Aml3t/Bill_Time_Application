@@ -117,6 +117,32 @@ namespace BillTime.Controls
             ResetForm();
         }
 
+        private (bool isValid, ClientModel model) ValidateForm()
+        {
+            bool isValid = true;
+            ClientModel model = new ClientModel();
+
+            try
+            {
+                model.Name = nameTextbox.Text;
+                model.Email = emailTextbox.Text;
+                model.PreBill = (bool)preBillCheckbox.IsChecked ? 1 : 0;
+                model.HasCutOff = (bool)hasCutOffCheckbox.IsChecked ? 1 : 0;
+                model.HourlyRate = double.Parse(hourlyRateTextbox.Text);
+                model.CutOff = int.Parse(cutOffTextbox.Text);
+                model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
+                model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
+                model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
+
+            }
+            catch
+            {
+                isValid = false;
+            }
+
+            return (isValid, model);
+        }
+
         private void InsertNewClient()
         {
             string sql = "insert into Client (Name, HourlyRate, Email," +
@@ -129,7 +155,15 @@ namespace BillTime.Controls
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 {"@Name", nameTextbox.Text },
-                { },
+                {"@HourlyRate", nameTextbox.Text },
+                {"@Email", nameTextbox.Text },
+                {"@PreBill", nameTextbox.Text },
+                {"@HasCutOff", nameTextbox.Text },
+                {"@CutOff", nameTextbox.Text },
+                {"@NaMinimumHoursme", nameTextbox.Text },
+                {"@BillingIncrement", nameTextbox.Text },
+                {"@RoundUpAfterXMinutes", nameTextbox.Text }
+
             };
 
             SqliteDataAccess.SaveData(sql, parameters);
