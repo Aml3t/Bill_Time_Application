@@ -101,7 +101,7 @@ namespace BillTime.Controls
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
-            if (isNewEntry = true)
+            if (isNewEntry == true)
             {
                 InsertNewClient();
             }
@@ -115,7 +115,8 @@ namespace BillTime.Controls
 
         private void InsertNewClient()
         {
-
+            string sql = "insert into Client (Name, HourlyRate, Email, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes"
+                + "Values (@Name, @HourlyRate, @Email, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
         }
         private void UpdateClientRecord()
         {
@@ -123,7 +124,11 @@ namespace BillTime.Controls
         }
         private void ResetForm()
         {
+            clientStackPanel.Visibility = Visibility.Visible;
+            editButton.Visibility = Visibility.Visible;
+            newButton.Visibility = Visibility.Visible;
 
+            isNewEntry = true;
         }
     }
 }
