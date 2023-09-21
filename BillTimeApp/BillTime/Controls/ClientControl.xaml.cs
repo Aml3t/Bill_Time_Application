@@ -145,14 +145,17 @@ namespace BillTime.Controls
 
         private void InsertNewClient()
         {
-            string sql = "insert into Client (Name, HourlyRate, Email," +
-                " PreBill, HasCutOff, CutOff, MinimumHours," +
-                " BillingIncrement, RoundUpAfterXMinutes"
-                + "values (@Name, @HourlyRate, @Email, @PreBill," +
-                " @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement," +
-                " @RoundUpAfterXMinutes)";
+            string sql = "INSERT INTO Client (Name, HourlyRate, Email, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) "
+                        + "VALUES (@Name, @HourlyRate, @Email, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
+
 
             var form = ValidateForm();
+
+            if (form.isValid == false)
+            {
+                MessageBox.Show("Invalid form. Please check data and try again.");
+                return;
+            }
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
@@ -165,7 +168,6 @@ namespace BillTime.Controls
                 {"@MinimumHours", form.model.MinimumHours },
                 {"@BillingIncrement", form.model.BillingIncrement },
                 {"@RoundUpAfterXMinutes", form.model.RoundUpAfterXMinutes }
-
             };
 
             SqliteDataAccess.SaveData(sql, parameters);

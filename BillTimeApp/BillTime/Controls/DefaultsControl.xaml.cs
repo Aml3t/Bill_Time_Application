@@ -68,7 +68,6 @@ namespace BillTime.Controls
                 model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
                 model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
                 model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
-
             }
             catch
             {
@@ -85,7 +84,7 @@ namespace BillTime.Controls
             SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
 
             sql = "insert into Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes)"
-                  + "values (@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
+                  + "VALUES (@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
 
             //"INSERT INTO Defaults (HourlyRate, PreBill, HasCutOff, CutOff, MinimumHours, BillingIncrement, RoundUpAfterXMinutes) " +
             //      "VALUES (@HourlyRate, @PreBill, @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement, @RoundUpAfterXMinutes)";
@@ -120,11 +119,6 @@ namespace BillTime.Controls
                 MessageBox.Show("You have wrong values somewhere. Please enter valid ones.");
                 return;
             }
-        }
-
-        private void submitForm_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
