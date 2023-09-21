@@ -152,17 +152,19 @@ namespace BillTime.Controls
                 " @HasCutOff, @CutOff, @MinimumHours, @BillingIncrement," +
                 " @RoundUpAfterXMinutes)";
 
+            var form = ValidateForm();
+
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
-                {"@Name", nameTextbox.Text },
-                {"@HourlyRate", nameTextbox.Text },
-                {"@Email", nameTextbox.Text },
-                {"@PreBill", nameTextbox.Text },
-                {"@HasCutOff", nameTextbox.Text },
-                {"@CutOff", nameTextbox.Text },
-                {"@NaMinimumHoursme", nameTextbox.Text },
-                {"@BillingIncrement", nameTextbox.Text },
-                {"@RoundUpAfterXMinutes", nameTextbox.Text }
+                {"@Name", form.model.Name },
+                {"@HourlyRate", form.model.HourlyRate },
+                {"@Email", form.model.Email },
+                {"@PreBill", form.model.PreBill },
+                {"@HasCutOff", form.model.HasCutOff },
+                {"@CutOff", form.model.CutOff },
+                {"@MinimumHours", form.model.MinimumHours },
+                {"@BillingIncrement", form.model.BillingIncrement },
+                {"@RoundUpAfterXMinutes", form.model.RoundUpAfterXMinutes }
 
             };
 
