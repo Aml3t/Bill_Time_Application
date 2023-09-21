@@ -24,6 +24,8 @@ namespace BillTime.Controls
     {
         List<ClientModel> clients;
 
+        bool isNewEntry = true;
+
         public ClientControl()
         {
             InitializeComponent();
@@ -54,9 +56,10 @@ namespace BillTime.Controls
             //editButton.IsEnabled = false;
             clientStackPanel.Visibility = Visibility.Collapsed;
             editButton.Visibility = Visibility.Collapsed;
-            LoadDefaults();
-            FillRemainingData();
 
+            isNewEntry = true;
+
+            LoadDefaults();
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
@@ -66,7 +69,6 @@ namespace BillTime.Controls
             //newButton.IsEnabled = false;
             clientStackPanel.Visibility = Visibility.Collapsed;
             newButton.Visibility = Visibility.Collapsed;
-
         }
 
         private void LoadDefaults()
@@ -97,11 +99,31 @@ namespace BillTime.Controls
             }
         }
 
-        private ClientModel FillRemainingData()
+        private void submitForm_Click(object sender, RoutedEventArgs e)
         {
-            return new ClientModel();
+            if (isNewEntry = true)
+            {
+                InsertNewClient();
+            }
+            else
+            {
+                UpdateClientRecord();
+            }
+
+            ResetForm();
         }
 
+        private void InsertNewClient()
+        {
 
+        }
+        private void UpdateClientRecord()
+        {
+
+        }
+        private void ResetForm()
+        {
+
+        }
     }
 }
