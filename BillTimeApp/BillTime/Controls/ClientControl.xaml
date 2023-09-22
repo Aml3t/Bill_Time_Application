@@ -50,14 +50,14 @@
                 <TextBox x:Name="emailTextbox"/>
             </StackPanel>
         </StackPanel>
-        
+
         <!-- Row 4 -->
         <StackPanel Orientation="Vertical" Grid.Row="4" Margin="5 5 5 10" x:Name="hourlyRateStackPanel">
             <StackPanel>
                 <TextBlock>Hourly Rate</TextBlock>
                 <TextBox x:Name="hourlyRateTextbox"/>
             </StackPanel>
-        </StackPanel>  
+        </StackPanel>
 
         <!-- Row 5 -->
         <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5 5 5 10" x:Name="preBillStackPanel">
@@ -107,8 +107,18 @@
         </StackPanel>
 
         <!-- Row 8 -->
-        <Button x:Name="submitForm" Grid.Row="8" Width="100"
-                Margin="5 5 5 15" Padding="5 5" Click="submitForm_Click" 
+        <StackPanel Grid.Row="8" Orientation="Horizontal" x:Name="buttonStackPanel">
+            <Grid>
+                <Button x:Name="submitForm" Width="130" FontSize="20"
+                Margin="77,5,23,15" Padding="5 5" Click="submitForm_Click" 
                 >Submit</Button>
+            </Grid>
+            <Grid>
+                <Button x:Name="clearForm" Width="50" FontSize="14"
+                Margin="1,11,9,19" Click="clearForm_Click" >Clear</Button>
+            </Grid>
+
+        </StackPanel>
     </Grid>
+
 </UserControl>

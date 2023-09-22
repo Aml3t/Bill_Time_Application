@@ -105,14 +105,6 @@ namespace BillTime.Controls
             billingIncrementTextbox.Text = client.BillingIncrement.ToString();
             roundUpAfterXMinuteTextbox.Text = client.RoundUpAfterXMinutes.ToString();
 
-            //int modelId = client.Id;
-
-            //string sql = $"select * from Client where Id = @{modelId}";
-
-            //ClientModel output = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>()).FirstOrDefault();
-
-
-
         }
 
         private void LoadDefaults()
@@ -250,6 +242,11 @@ namespace BillTime.Controls
             checkboxesStackPanel.Visibility = display;
             incrementsStackPanel.Visibility = display;
             submitForm.Visibility = display;
+            buttonStackPanel.Visibility = display;
+        }
+
+        private void clearForm_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
