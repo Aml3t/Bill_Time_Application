@@ -211,11 +211,48 @@ namespace BillTime.Controls
             };
 
             SqliteDataAccess.SaveData(sql, parameters);
+
             clients.Add(form.model);
+
+            MessageBox.Show("Success");
+
         }
 
         private void UpdateClientRecord()
         {
+            string sql = "UPDATE Client set Name = @Name, HourlyRate = @HourlyRate, Email = @Email, PreBill = @PreBill," +
+                " HasCutOff = @HasCutOff, CutOff = @CutOff, MinimumHours = @MinimumHours, BillingIncrement = @BillingIncrement," +
+                "  RoundUpAfterXMinutes = @RoundUpAfterXMinutes " +
+                "where Id = @Id";
+
+
+            //string sql = "UPDATE Client set Name = @Name, HourlyRate = @HourlyRate, Email = @Email, PreBill = @PreBill, HasCutOff = @HasCutOff, CutOff = @CutOff, MinimumHours = @MinimumHours, BillingIncrement = @BillingIncrement, RoundUpAfterXMinutes = @RoundUpAfterXMinutes ";
+
+            var form = ValidateForm();
+
+            if (form.isValid == false)
+            {
+                MessageBox.Show("Invalid form. Please check data and try again.");
+                return;
+            }
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@Id", clientDropDown.SelectedValue }, // It could be ((ClientModel)(clientDropDown.SelectedItem)).Id
+                {"@Name", form.model.Name },
+                {"@HourlyRate", form.model.HourlyRate },
+                {"@Email", form.model.Email },
+                {"@PreBill", form.model.PreBill },
+                {"@HasCutOff", form.model.HasCutOff },
+                {"@CutOff", form.model.CutOff },
+                {"@MinimumHours", form.model.MinimumHours },
+                {"@BillingIncrement", form.model.BillingIncrement },
+                {"@RoundUpAfterXMinutes", form.model.RoundUpAfterXMinutes }
+            };
+
+            SqliteDataAccess.SaveData(sql, parameters);
+              
+            MessageBox.Show("Successfully updated the client.");
 
         }
 
@@ -241,13 +278,12 @@ namespace BillTime.Controls
             preBillStackPanel.Visibility = display;
             checkboxesStackPanel.Visibility = display;
             incrementsStackPanel.Visibility = display;
-            submitForm.Visibility = display;
             buttonStackPanel.Visibility = display;
         }
 
         private void clearForm_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetForm();
         }
     }
 }
