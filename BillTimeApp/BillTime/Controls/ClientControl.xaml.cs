@@ -2,6 +2,7 @@
 using BillTimeLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace BillTime.Controls
     /// </summary>
     public partial class ClientControl : UserControl
     {
-        List<ClientModel> clients;
+        ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
 
         bool isNewEntry = true;
 
@@ -37,7 +38,7 @@ namespace BillTime.Controls
 
         private void WireUpClientDropDown()
         {
-            clientDropDown.ItemsSource = clients;
+            clientDropDown.ItemsSource = clients; 
             clientDropDown.DisplayMemberPath = "Name";
             clientDropDown.SelectedValuePath = "Id";
         }
@@ -46,7 +47,10 @@ namespace BillTime.Controls
         {
             string sql = "select * from Client";
 
-            clients = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
+            var clientList = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
+
+            clientList.ForEach(x => clients.Add(x));
+
         }
 
         private void newButton_Click(object sender, RoutedEventArgs e)
