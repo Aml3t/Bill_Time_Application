@@ -34,6 +34,8 @@ namespace BillTime.Controls
             InitializeClientList();
 
             WireUpClientDropDown();
+
+            ToggleFormFieldsDisplay(false);
         }
 
         private void WireUpClientDropDown()
@@ -58,6 +60,8 @@ namespace BillTime.Controls
             //// Could be done like this
             //clientStackPanel.IsEnabled = false;
             //editButton.IsEnabled = false;
+            ToggleFormFieldsDisplay(true);
+
             clientStackPanel.Visibility = Visibility.Collapsed;
             editButton.Visibility = Visibility.Collapsed;
 
@@ -181,10 +185,12 @@ namespace BillTime.Controls
             SqliteDataAccess.SaveData(sql, parameters);
             clients.Add(form.model);
         }
+
         private void UpdateClientRecord()
         {
 
         }
+
         private void ResetForm()
         {
             clientStackPanel.Visibility = Visibility.Visible;
@@ -194,6 +200,20 @@ namespace BillTime.Controls
             isNewEntry = true;
 
             ClearFormData();
+        }
+
+        private void ToggleFormFieldsDisplay(bool displayFields)
+        {
+            Visibility display = displayFields ? Visibility.Visible : Visibility.Collapsed;
+
+            nameStackPanel.Visibility = display;
+            emailStackPanel.Visibility = display;
+            hourlyRateStackPanel.Visibility = display;
+            preBillStackPanel.Visibility = display;
+            checkboxesStackPanel.Visibility = display;
+            incrementsStackPanel.Visibility = display;
+            submitForm.Visibility = display;
+
         }
     }
 }
