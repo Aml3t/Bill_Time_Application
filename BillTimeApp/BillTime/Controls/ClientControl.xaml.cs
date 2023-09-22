@@ -60,7 +60,6 @@ namespace BillTime.Controls
             //// Could be done like this
             //clientStackPanel.IsEnabled = false;
             //editButton.IsEnabled = false;
-            ToggleFormFieldsDisplay(true);
 
             clientStackPanel.Visibility = Visibility.Collapsed;
             editButton.Visibility = Visibility.Collapsed;
@@ -68,6 +67,8 @@ namespace BillTime.Controls
             isNewEntry = true;
 
             LoadDefaults();
+
+            ToggleFormFieldsDisplay(true);
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
@@ -77,6 +78,26 @@ namespace BillTime.Controls
             //newButton.IsEnabled = false;
             clientStackPanel.Visibility = Visibility.Collapsed;
             newButton.Visibility = Visibility.Collapsed;
+
+            isNewEntry = false;
+
+            LoadClient();
+
+            ToggleFormFieldsDisplay(true);
+        }
+
+        private void LoadClient()
+        {
+            ClientModel model = (ClientModel)clientDropDown.SelectedItem;
+
+            int modelId = model.Id;
+
+            string sql = $"select * from Client where Id = @{modelId}";
+
+            ClientModel output = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>()).FirstOrDefault();
+
+
+
         }
 
         private void LoadDefaults()
@@ -200,6 +221,7 @@ namespace BillTime.Controls
             isNewEntry = true;
 
             ClearFormData();
+            ToggleFormFieldsDisplay(false);
         }
 
         private void ToggleFormFieldsDisplay(bool displayFields)
