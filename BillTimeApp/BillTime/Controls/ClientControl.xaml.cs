@@ -45,7 +45,7 @@ namespace BillTime.Controls
 
         private void InitializeClientList()
         {
-            string sql = "select * from Client";
+            string sql = "select * from Client order by Name";
 
             var clientList = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
 
@@ -179,6 +179,7 @@ namespace BillTime.Controls
             };
 
             SqliteDataAccess.SaveData(sql, parameters);
+            clients.Add(form.model);
         }
         private void UpdateClientRecord()
         {
