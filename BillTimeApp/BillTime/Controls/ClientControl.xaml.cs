@@ -73,6 +73,11 @@ namespace BillTime.Controls
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            if (clientDropDown.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a client.");
+                return;
+            }
             //// Could be done like this
             //clientStackPanel.IsEnabled = false;
             //newButton.IsEnabled = false;
@@ -88,13 +93,23 @@ namespace BillTime.Controls
 
         private void LoadClient()
         {
-            ClientModel model = (ClientModel)clientDropDown.SelectedItem;
+            ClientModel client = (ClientModel)clientDropDown.SelectedItem;
 
-            int modelId = model.Id;
+            nameTextbox.Text = client.Name;
+            emailTextbox.Text = client.Email;
+            hourlyRateTextbox.Text = client.HourlyRate.ToString();
+            preBillCheckbox.IsChecked = (client.PreBill > 0);
+            hasCutOffCheckbox.IsChecked = (client.HasCutOff > 0);
+            cutOffTextbox.Text = client.CutOff.ToString();
+            minimumHoursTextbox.Text = client.MinimumHours.ToString();
+            billingIncrementTextbox.Text = client.BillingIncrement.ToString();
+            roundUpAfterXMinuteTextbox.Text = client.RoundUpAfterXMinutes.ToString();
 
-            string sql = $"select * from Client where Id = @{modelId}";
+            //int modelId = client.Id;
 
-            ClientModel output = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>()).FirstOrDefault();
+            //string sql = $"select * from Client where Id = @{modelId}";
+
+            //ClientModel output = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>()).FirstOrDefault();
 
 
 
