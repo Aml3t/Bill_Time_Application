@@ -36,7 +36,7 @@
         </StackPanel>
 
         <!-- Row 2 -->
-        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10" x:Name="nameStackPanel">
             <StackPanel>
                 <TextBlock>Name</TextBlock>
                 <TextBox x:Name="nameTextbox"/>
@@ -44,7 +44,7 @@
         </StackPanel>
 
         <!-- Row 3 -->
-        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="5 5 5 10" x:Name="emailStackPanel">
             <StackPanel>
                 <TextBlock>Email</TextBlock>
                 <TextBox x:Name="emailTextbox"/>
@@ -52,7 +52,7 @@
         </StackPanel>
         
         <!-- Row 4 -->
-        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="5 5 5 10" x:Name="hourlyRateStackPanel">
             <StackPanel>
                 <TextBlock>Hourly Rate</TextBlock>
                 <TextBox x:Name="hourlyRateTextbox"/>
@@ -60,7 +60,7 @@
         </StackPanel>  
 
         <!-- Row 5 -->
-        <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5 5 5 10">
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5 5 5 10" x:Name="preBillStackPanel">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -83,7 +83,7 @@
         </StackPanel>
 
         <!-- Row 6 -->
-        <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="5 5 5 10">
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="5 5 5 10" x:Name="checkboxesStackPanel">
             <StackPanel Orientation="Vertical" Margin="0 0 10 0">
                 <TextBlock>Cut Off Number</TextBlock>
                 <TextBox x:Name="cutOffTextbox"/>
@@ -95,7 +95,7 @@
         </StackPanel>
 
         <!-- Row 7 -->
-        <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="5 5 5 10">
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="5 5 5 10" x:Name="incrementsStackPanel">
             <StackPanel Orientation="Vertical" Margin="0 0 10 0">
                 <TextBlock>Billing Increment</TextBlock>
                 <TextBox x:Name="billingIncrementTextbox"/>
