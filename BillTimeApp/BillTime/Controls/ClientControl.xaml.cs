@@ -91,16 +91,21 @@ namespace BillTime.Controls
             }
             else
             {
-                nameTextbox.Text = "";
-                emailTextbox.Text = "";
-                hourlyRateTextbox.Text = "0";
-                preBillCheckbox.IsChecked = true;
-                hasCutOffCheckbox.IsChecked = false;
-                cutOffTextbox.Text = "0";
-                minimumHoursTextbox.Text = "0.25";
-                billingIncrementTextbox.Text = "0.25";
-                roundUpAfterXMinuteTextbox.Text = "0";
+                ClearFormData();
             }
+        }
+
+        private void ClearFormData()
+        {
+            nameTextbox.Text = "";
+            emailTextbox.Text = "";
+            hourlyRateTextbox.Text = "0";
+            preBillCheckbox.IsChecked = true;
+            hasCutOffCheckbox.IsChecked = false;
+            cutOffTextbox.Text = "0";
+            minimumHoursTextbox.Text = "0.25";
+            billingIncrementTextbox.Text = "0.25";
+            roundUpAfterXMinuteTextbox.Text = "0";
         }
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
@@ -133,7 +138,6 @@ namespace BillTime.Controls
                 model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
                 model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
                 model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
-
             }
             catch
             {
@@ -183,6 +187,8 @@ namespace BillTime.Controls
             newButton.Visibility = Visibility.Visible;
 
             isNewEntry = true;
+
+            ClearFormData();
         }
     }
 }
