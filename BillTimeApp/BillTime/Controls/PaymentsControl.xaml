@@ -55,12 +55,12 @@
         <StackPanel Grid.Row="5" Orientation="Horizontal" x:Name="buttonStackPanel">
             <Grid>
                 <Button x:Name="submitForm" Width="130" FontSize="20"
-                Margin="50,5,23,15" Padding="5 5" 
+                Margin="50,5,23,15" Padding="5 5" Click="submitForm_Click" 
                 >Submit</Button>
             </Grid>
             <Grid>
                 <Button x:Name="clearForm" Width="50" FontSize="14"
-                Margin="1,11,9,19">Clear</Button>
+                Margin="1,11,9,19" Click="clearForm_Click">Clear</Button>
             </Grid>
         </StackPanel>
     </Grid>

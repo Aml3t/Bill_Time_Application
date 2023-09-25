@@ -25,6 +25,8 @@ namespace BillTime.Controls
     {
         ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
 
+        bool isNewEntry = true;
+
         ObservableCollection<PaymentModel> payments = new ObservableCollection<PaymentModel>();
         
 
@@ -79,9 +81,6 @@ namespace BillTime.Controls
             hoursStackPanel.Visibility = display;
             buttonStackPanel.Visibility = display;
         }
-
-
-
         private void SearchPaymentDateOfClient()
         {
 
@@ -92,6 +91,7 @@ namespace BillTime.Controls
 
         }
 
+
         private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectionStackPanel.Visibility = Visibility.Visible;
@@ -101,7 +101,57 @@ namespace BillTime.Controls
         {
             ToggleFormFieldsDisplay(true);
             dateStackPanel.Visibility = Visibility.Collapsed;
-            orTextBlock.Visibility = Visibility.Collapsed;
+            orTextBlock.Visibility = Visibility.Collapsed; 
         }
+
+        private void submitForm_Click(object sender, RoutedEventArgs e)
+        {
+            if (isNewEntry == true)
+            {
+                InsertNewPayment();
+            }
+            else
+            {
+                UpdatePaymentRecord();
+            }
+
+            ResetForm();
+        }
+
+        private void InsertNewPayment()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdatePaymentRecord()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ResetForm()
+        {
+            dateStackPanel.Visibility = Visibility.Visible;
+            orTextBlock.Visibility = Visibility.Visible;
+            newButton.Visibility = Visibility.Visible;
+
+            isNewEntry = true;
+
+            ClearFormData();
+
+            ToggleFormFieldsDisplay(false);
+        }
+
+        private void ClearFormData()
+        {
+            amountTextBox.Text = "";
+            hoursTextBox.Text = "";
+        }
+
+
+        private void clearForm_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
