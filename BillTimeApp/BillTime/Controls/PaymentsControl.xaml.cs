@@ -27,7 +27,7 @@ namespace BillTime.Controls
 
         bool isNewEntry = true;
 
-        ObservableCollection<PaymentModel> payments = new ObservableCollection<PaymentModel>();
+        ObservableCollection<PaymentsModel> payments = new ObservableCollection<PaymentsModel>();
         
 
         public PaymentsControl()
@@ -68,7 +68,7 @@ namespace BillTime.Controls
 
             string sql = "select * from Payment Where ClientId = @clientId";
 
-            var paymentList = SqliteDataAccess.LoadData<PaymentModel>(sql, new Dictionary<string, object>());
+            var paymentList = SqliteDataAccess.LoadData<PaymentsModel>(sql, new Dictionary<string, object>());
 
             paymentList.ForEach(x => payments.Add(x));
         }
@@ -116,6 +116,35 @@ namespace BillTime.Controls
             }
 
             ResetForm();
+        }
+
+        private (bool isValid, PaymentsModel model) ValidateForm()
+        {
+            bool isValid = true;
+            PaymentsModel model = new PaymentsModel();
+
+            try
+            {
+                model.Amount = double.Parse(amountTextBox.Text);
+                model.Hours = double.Parse(hoursTextBox.Text);
+                //model.Date = double.Parse(dateStackPanel.GetValue);
+
+                //model.Name = nameTextbox.Text;
+                //model.Email = emailTextbox.Text;
+                //model.PreBill = (bool)preBillCheckbox.IsChecked ? 1 : 0;
+                //model.HasCutOff = (bool)hasCutOffCheckbox.IsChecked ? 1 : 0;
+                //model.HourlyRate = double.Parse(hourlyRateTextbox.Text);
+                //model.CutOff = int.Parse(cutOffTextbox.Text);
+                //model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
+                //model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
+                //model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
+            }
+            catch
+            {
+                isValid = false;
+            }
+
+            return (isValid, model);
         }
 
         private void InsertNewPayment()

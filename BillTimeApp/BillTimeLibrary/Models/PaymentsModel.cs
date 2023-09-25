@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BillTimeLibrary.Models
 {
-    public class PaymentModel
+    public class PaymentsModel
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
