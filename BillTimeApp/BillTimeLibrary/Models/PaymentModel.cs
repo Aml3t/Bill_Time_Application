@@ -13,7 +13,5 @@ namespace BillTimeLibrary.Models
         public double Hours { get; set; }
         public double Amount { get; set; }
         public double Date { get; set; }
-
-
     }
 }

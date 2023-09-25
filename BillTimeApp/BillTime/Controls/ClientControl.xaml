@@ -117,7 +117,6 @@
                 <Button x:Name="clearForm" Width="50" FontSize="14"
                 Margin="1,11,9,19" Click="clearForm_Click" >Clear</Button>
             </Grid>
-
         </StackPanel>
     </Grid>
 

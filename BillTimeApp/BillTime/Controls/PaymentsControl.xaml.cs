@@ -36,7 +36,9 @@ namespace BillTime.Controls
 
             WireUpClientDropDown();
 
-            InitializePaymentsList();
+            ToggleFormFieldsDisplay(false);
+
+            //InitializePaymentsList();
         }
 
         private void WireUpClientDropDown()
@@ -64,6 +66,16 @@ namespace BillTime.Controls
             var paymentList = SqliteDataAccess.LoadData<PaymentModel>(sql, new Dictionary<string, object>());
 
             paymentList.ForEach(x => payments.Add(x));
+        }
+
+        private void ToggleFormFieldsDisplay(bool displayFields)
+        {
+            Visibility display = displayFields ? Visibility.Visible : Visibility.Collapsed;
+
+            dateStackPanel.Visibility = display;
+            amountStackPanel.Visibility = display;
+            hoursStackPanel.Visibility = display;
+            buttonStackPanel.Visibility = display;
         }
 
 
