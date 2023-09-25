@@ -1,4 +1,5 @@
-﻿using BillTimeLibrary.Models;
+﻿using BillTimeLibrary.DataAccess;
+using BillTimeLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,10 +25,16 @@ namespace BillTime.Controls
     {
         ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
 
+        ObservableCollection<PaymentModel> payments = new ObservableCollection<PaymentModel>();
+        
+
         public PaymentsControl()
         {
             InitializeComponent();
 
+            InitializeClientList();
+
+            WireUpClientDropDown();
         }
 
         private void WireUpClientDropDown()
@@ -36,5 +43,27 @@ namespace BillTime.Controls
             clientDropDown.DisplayMemberPath = "Name";
             clientDropDown.SelectedValuePath = "Id";
         }
+
+        private void InitializeClientList()
+        {
+            string sql = "select * from Client order by Name";
+
+            var clientList = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
+
+            clientList.ForEach(x => clients.Add(x));
+        }
+
+        private void SearchPaymentDateOfClient()
+        {
+            ClientModel client = new ClientModel();
+            //dateDropDown.SelectedItem;
+        }
+
+        private void SelectPaymentDate()
+        {
+
+        }
+
+
     }
 }
