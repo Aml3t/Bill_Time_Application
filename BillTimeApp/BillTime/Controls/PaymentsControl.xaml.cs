@@ -57,7 +57,9 @@ namespace BillTime.Controls
 
         private void InitializePaymentsList()
         {
-            string sql = "select * from Payment";
+            int clientId = ((ClientModel)(clientDropDown.SelectedItem)).Id;
+
+            string sql = "select * from Payment Where ClientId = @clientId";
 
             var paymentList = SqliteDataAccess.LoadData<PaymentModel>(sql, new Dictionary<string, object>());
 
