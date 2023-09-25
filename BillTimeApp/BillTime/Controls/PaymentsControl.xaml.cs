@@ -38,6 +38,9 @@ namespace BillTime.Controls
 
             ToggleFormFieldsDisplay(false);
 
+            selectionStackPanel.Visibility = Visibility.Collapsed;
+
+
             //InitializePaymentsList();
         }
 
@@ -72,7 +75,6 @@ namespace BillTime.Controls
         {
             Visibility display = displayFields ? Visibility.Visible : Visibility.Collapsed;
 
-            dateStackPanel.Visibility = display;
             amountStackPanel.Visibility = display;
             hoursStackPanel.Visibility = display;
             buttonStackPanel.Visibility = display;
@@ -90,6 +92,16 @@ namespace BillTime.Controls
 
         }
 
+        private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectionStackPanel.Visibility = Visibility.Visible;
+        }
 
+        private void newButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleFormFieldsDisplay(true);
+            dateStackPanel.Visibility = Visibility.Collapsed;
+            orTextBlock.Visibility = Visibility.Collapsed;
+        }
     }
 }
