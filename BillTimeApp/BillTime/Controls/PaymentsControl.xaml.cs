@@ -35,6 +35,8 @@ namespace BillTime.Controls
             InitializeClientList();
 
             WireUpClientDropDown();
+
+            InitializePaymentsList();
         }
 
         private void WireUpClientDropDown()
@@ -53,10 +55,20 @@ namespace BillTime.Controls
             clientList.ForEach(x => clients.Add(x));
         }
 
+        private void InitializePaymentsList()
+        {
+            string sql = "select * from Payment";
+
+            var paymentList = SqliteDataAccess.LoadData<PaymentModel>(sql, new Dictionary<string, object>());
+
+            paymentList.ForEach(x => payments.Add(x));
+        }
+
+
+
         private void SearchPaymentDateOfClient()
         {
-            ClientModel client = new ClientModel();
-            //dateDropDown.SelectedItem;
+
         }
 
         private void SelectPaymentDate()
