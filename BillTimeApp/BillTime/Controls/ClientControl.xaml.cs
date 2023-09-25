@@ -251,8 +251,15 @@ namespace BillTime.Controls
             };
 
             SqliteDataAccess.SaveData(sql, parameters);
+
+
+            ClientModel currentRecord = (ClientModel)clientDropDown.SelectedItem;
+
+            currentRecord.Name = "";
               
             MessageBox.Show("Successfully updated the client.");
+
+
 
         }
 
