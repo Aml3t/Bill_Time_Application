@@ -255,6 +255,8 @@ namespace BillTime.Controls
 
             ClientModel currentRecord = (ClientModel)clientDropDown.SelectedItem;
 
+            // Refreshing the edited changes on the fly.
+
             currentRecord.Name = form.model.Name;
             currentRecord.HourlyRate = form.model.HourlyRate;
             currentRecord.Email = form.model.Email;
