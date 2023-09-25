@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BillTimeLibrary.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,19 @@ namespace BillTime.Controls
     /// </summary>
     public partial class PaymentsControl : UserControl
     {
+        ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
+
         public PaymentsControl()
         {
             InitializeComponent();
+
+        }
+
+        private void WireUpClientDropDown()
+        {
+            clientDropDown.ItemsSource = clients;
+            clientDropDown.DisplayMemberPath = "Name";
+            clientDropDown.SelectedValuePath = "Id";
         }
     }
 }
