@@ -255,8 +255,16 @@ namespace BillTime.Controls
 
             ClientModel currentRecord = (ClientModel)clientDropDown.SelectedItem;
 
-            currentRecord.Name = "";
-              
+            currentRecord.Name = form.model.Name;
+            currentRecord.HourlyRate = form.model.HourlyRate;
+            currentRecord.Email = form.model.Email;
+            currentRecord.PreBill = form.model.PreBill;
+            currentRecord.HasCutOff = form.model.HasCutOff;
+            currentRecord.CutOff = form.model.CutOff;
+            currentRecord.MinimumHours = form.model.MinimumHours;
+            currentRecord.BillingIncrement = form.model.BillingIncrement;
+            currentRecord.RoundUpAfterXMinutes = form.model.RoundUpAfterXMinutes;
+
             MessageBox.Show("Successfully updated the client.");
 
 
