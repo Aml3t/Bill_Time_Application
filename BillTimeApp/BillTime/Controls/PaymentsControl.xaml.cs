@@ -127,7 +127,7 @@ namespace BillTime.Controls
             {
                 model.Amount = double.Parse(amountTextBox.Text);
                 model.Hours = double.Parse(hoursTextBox.Text);
-                //model.Date = double.Parse(dateStackPanel.GetValue);
+                model.Date = DateTime.Parse(dateDropDown.Text);
 
                 //model.Name = nameTextbox.Text;
                 //model.Email = emailTextbox.Text;
