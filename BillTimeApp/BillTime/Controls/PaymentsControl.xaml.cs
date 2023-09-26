@@ -36,21 +36,25 @@ namespace BillTime.Controls
 
             InitializeClientList();
 
-            WireUpClientDropDown();
+            WireUpDropDowns();
 
             ToggleFormFieldsDisplay(false);
 
             selectionStackPanel.Visibility = Visibility.Collapsed;
 
-
             //InitializePaymentsList();
         }
 
-        private void WireUpClientDropDown()
+        private void WireUpDropDowns()
         {
             clientDropDown.ItemsSource = clients;
             clientDropDown.DisplayMemberPath = "Name";
             clientDropDown.SelectedValuePath = "Id";
+
+            dateDropDown.ItemsSource = payments;
+            dateDropDown.DisplayMemberPath = "Date";
+            dateDropDown.SelectedValuePath = "Id";
+
         }
 
         private void InitializeClientList()
@@ -62,15 +66,23 @@ namespace BillTime.Controls
             clientList.ForEach(x => clients.Add(x));
         }
 
-        private void InitializePaymentsList()
+
+
+        private void LoadDateDropDown()
         {
-            int clientId = ((ClientModel)(clientDropDown.SelectedItem)).Id;
+            //int clientId = ((ClientModel)(clientDropDown.SelectedItem)).Id;
 
-            string sql = "select * from Payment Where ClientId = @clientId";
+            string sql = "select * from Payment Where ClientId = @ClientId";
 
-            var paymentList = SqliteDataAccess.LoadData<PaymentsModel>(sql, new Dictionary<string, object>());
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@ClientId", clientDropDown.SelectedValue }
+            };
 
-            paymentList.ForEach(x => payments.Add(x));
+            var records = SqliteDataAccess.LoadData<PaymentsModel>(sql, parameters);
+
+            payments.Clear();
+            records.ForEach(x => payments.Add(x));
         }
 
         private void ToggleFormFieldsDisplay(bool displayFields)
@@ -81,20 +93,12 @@ namespace BillTime.Controls
             hoursStackPanel.Visibility = display;
             buttonStackPanel.Visibility = display;
         }
-        private void SearchPaymentDateOfClient()
-        {
-
-        }
-
-        private void SelectPaymentDate()
-        {
-
-        }
-
 
         private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectionStackPanel.Visibility = Visibility.Visible;
+
+            LoadDateDropDown();
         }
 
         private void newButton_Click(object sender, RoutedEventArgs e)
@@ -161,7 +165,7 @@ namespace BillTime.Controls
 
             SqliteDataAccess.SaveData(sql, parameters);
 
-            payments.Add(form.model);
+            //payments.Add(form.model);
 
             MessageBox.Show("Success");
 
@@ -190,7 +194,6 @@ namespace BillTime.Controls
             amountTextBox.Text = "";
             hoursTextBox.Text = "";
         }
-
 
         private void clearForm_Click(object sender, RoutedEventArgs e)
         {

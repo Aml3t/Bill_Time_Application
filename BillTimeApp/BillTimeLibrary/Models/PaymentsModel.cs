@@ -12,6 +12,6 @@ namespace BillTimeLibrary.Models
         public int ClientId { get; set; }
         public double Hours { get; set; }
         public double Amount { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
     }
 }
