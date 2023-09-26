@@ -108,7 +108,7 @@ namespace BillTime.Controls
         {
             if (isNewEntry == true)
             {
-                InsertNewPayment();
+                InsertNewClient();
             }
             else
             {
@@ -127,17 +127,7 @@ namespace BillTime.Controls
             {
                 model.Amount = double.Parse(amountTextBox.Text);
                 model.Hours = double.Parse(hoursTextBox.Text);
-                model.Date = DateTime.Parse(dateDropDown.Text);
-
-                //model.Name = nameTextbox.Text;
-                //model.Email = emailTextbox.Text;
-                //model.PreBill = (bool)preBillCheckbox.IsChecked ? 1 : 0;
-                //model.HasCutOff = (bool)hasCutOffCheckbox.IsChecked ? 1 : 0;
-                //model.HourlyRate = double.Parse(hourlyRateTextbox.Text);
-                //model.CutOff = int.Parse(cutOffTextbox.Text);
-                //model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
-                //model.BillingIncrement = double.Parse(billingIncrementTextbox.Text);
-                //model.RoundUpAfterXMinutes = int.Parse(roundUpAfterXMinuteTextbox.Text);
+                //model.Date = DateTime.Parse(dateDropDown.Text);
             }
             catch
             {
@@ -147,9 +137,38 @@ namespace BillTime.Controls
             return (isValid, model);
         }
 
-        private void InsertNewPayment()
+        private void InsertNewClient()
         {
-            throw new NotImplementedException();
+            string sql = "INSERT INTO Payment (ClientId, Hours, Amount, Date) "
+            + "VALUES (@ClientId, @Hours, @Amount, @Date)";
+
+            var form = ValidateForm();
+
+            if (form.isValid == false)
+            {
+                MessageBox.Show("Invalid form. Please check data and try again.");
+                return;
+            }
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@Name", form.model.Name },
+                {"@HourlyRate", form.model.HourlyRate },
+                {"@Email", form.model.Email },
+                {"@PreBill", form.model.PreBill },
+                {"@HasCutOff", form.model.HasCutOff },
+                {"@CutOff", form.model.CutOff },
+                {"@MinimumHours", form.model.MinimumHours },
+                {"@BillingIncrement", form.model.BillingIncrement },
+                {"@RoundUpAfterXMinutes", form.model.RoundUpAfterXMinutes }
+            };
+
+            SqliteDataAccess.SaveData(sql, parameters);
+
+            clients.Add(form.model);
+
+            MessageBox.Show("Success");
+
         }
 
         private void UpdatePaymentRecord()
