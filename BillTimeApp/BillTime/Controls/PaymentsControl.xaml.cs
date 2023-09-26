@@ -108,7 +108,7 @@ namespace BillTime.Controls
         {
             if (isNewEntry == true)
             {
-                InsertNewClient();
+                InsertNewPayment();
             }
             else
             {
@@ -137,10 +137,10 @@ namespace BillTime.Controls
             return (isValid, model);
         }
 
-        private void InsertNewClient()
+        private void InsertNewPayment()
         {
-            string sql = "INSERT INTO Payment (ClientId, Hours, Amount, Date) "
-            + "VALUES (@ClientId, @Hours, @Amount, @Date)";
+            string sql = "INSERT INTO Payment (ClientId, Hours, Amount) "
+            + "VALUES (@ClientId, @Hours, @Amount)";
 
             var form = ValidateForm();
 
@@ -150,22 +150,18 @@ namespace BillTime.Controls
                 return;
             }
 
+            form.model.ClientId = (int)clientDropDown.SelectedValue;
+
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
-                {"@Name", form.model.Name },
-                {"@HourlyRate", form.model.HourlyRate },
-                {"@Email", form.model.Email },
-                {"@PreBill", form.model.PreBill },
-                {"@HasCutOff", form.model.HasCutOff },
-                {"@CutOff", form.model.CutOff },
-                {"@MinimumHours", form.model.MinimumHours },
-                {"@BillingIncrement", form.model.BillingIncrement },
-                {"@RoundUpAfterXMinutes", form.model.RoundUpAfterXMinutes }
+                {"@ClientId", form.model.ClientId },
+                {"@Hours", form.model.Hours },
+                {"@Amount", form.model.Amount }
             };
 
             SqliteDataAccess.SaveData(sql, parameters);
 
-            clients.Add(form.model);
+            payments.Add(form.model);
 
             MessageBox.Show("Success");
 
@@ -198,7 +194,7 @@ namespace BillTime.Controls
 
         private void clearForm_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ResetForm();
         }
 
     }
