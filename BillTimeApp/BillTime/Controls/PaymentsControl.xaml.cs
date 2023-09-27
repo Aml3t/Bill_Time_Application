@@ -173,18 +173,25 @@ namespace BillTime.Controls
 
         private void UpdatePaymentRecord()
         {
-            string sql = "UPDATE Payment set ClientId = @ClientId, Hours = @Hours, Amount = @Amount, where Id = @Id, Date = @Date where Id = @Id ";
+            string sql = "UPDATE Payment set Hours = @Hours, Amount = @Amount where Id = @Id";
+
+            var form = ValidateForm();
 
             Dictionary<string, object> parameter = new Dictionary<string, object>
             {
-                { "@ClientId", clientDropDown.SelectedValue },
-                { "@Hours", hoursTextBox.Text },
-                { "@Amount", amountTextBox.Text },
-                { "@Id", clientDropDown.Text }
+                { "@Id", dateDropDown.SelectedValue },
+                { "@Hours", form.model.Hours },
+                { "@Amount", form.model.Amount }
             };
 
             SqliteDataAccess.SaveData(sql, parameter);
 
+            PaymentsModel currentPayment = (PaymentsModel)(dateDropDown.SelectedItem);
+
+            currentPayment.Amount = form.model.Amount;
+            currentPayment.Hours = form.model.Hours;
+
+            MessageBox.Show("Client successfully updated");
 
         }
 
