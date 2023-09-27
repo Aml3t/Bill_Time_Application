@@ -23,7 +23,7 @@
                 <MenuItem x:Name="defaultsMenuItem" Header="_Defaults" Click="defaultsMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="_Help">
-                <MenuItem x:Name="aboutMenuItem" Header="_About" />
+                <MenuItem x:Name="aboutMenuItem" Header="_About" Click="aboutMenuItem_Click"/>
             </MenuItem>
         </Menu>
         <ContentControl x:Name="content" Grid.Row="1" Margin="20 0 20 20" />
