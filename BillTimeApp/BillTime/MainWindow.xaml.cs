@@ -54,7 +54,7 @@ namespace BillTime
 
         private void aboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            content.Content = new AboutControl();
         }
     }
 }

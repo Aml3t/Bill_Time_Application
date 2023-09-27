@@ -28,7 +28,7 @@ namespace BillTime.Controls
         bool isNewEntry = true;
 
         ObservableCollection<PaymentsModel> payments = new ObservableCollection<PaymentsModel>();
-        
+
 
         public PaymentsControl()
         {
@@ -200,5 +200,20 @@ namespace BillTime.Controls
             ResetForm();
         }
 
+        private void dateDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            orTextBlock.Visibility = Visibility.Collapsed;
+            newButton.Visibility = Visibility.Collapsed;
+            ToggleFormFieldsDisplay(true);
+
+            PaymentsModel payment = (PaymentsModel)dateDropDown.SelectedItem;
+
+            amountTextBox.Text = payment.Amount.ToString();
+
+
+            
+
+
+        }
     }
 }
