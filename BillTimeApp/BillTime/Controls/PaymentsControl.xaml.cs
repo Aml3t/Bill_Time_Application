@@ -177,6 +177,12 @@ namespace BillTime.Controls
 
             var form = ValidateForm();
 
+            if (form.isValid == false)
+            {
+                MessageBox.Show("Invalid input. Please check again.");
+                return;
+            }
+
             Dictionary<string, object> parameter = new Dictionary<string, object>
             {
                 { "@Id", dateDropDown.SelectedValue },
