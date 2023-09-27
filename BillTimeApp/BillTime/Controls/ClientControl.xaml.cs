@@ -269,8 +269,6 @@ namespace BillTime.Controls
 
             MessageBox.Show("Successfully updated the client.");
 
-
-
         }
 
         private void ResetForm()
