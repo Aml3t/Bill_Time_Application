@@ -17,10 +17,10 @@
                 <MenuItem x:Name="exitMenuItem" Header="E_xit" />
             </MenuItem>
             <MenuItem Header="_Editors">
-                <MenuItem x:Name="clientsMenuItem" Header="_Client" />
-                <MenuItem x:Name="paymentMenuItem" Header="_Payment" />
-                <MenuItem x:Name="workMenuItem" Header="_Work" />
-                <MenuItem x:Name="defaultsMenuItem" Header="_Defaults" />
+                <MenuItem x:Name="clientsMenuItem" Header="_Client" Click="clientsMenuItem_Click" />
+                <MenuItem x:Name="paymentMenuItem" Header="_Payment" Click="paymentMenuItem_Click" />
+                <MenuItem x:Name="workMenuItem" Header="_Work" Click="workMenuItem_Click" />
+                <MenuItem x:Name="defaultsMenuItem" Header="_Defaults" Click="defaultsMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem x:Name="aboutMenuItem" Header="_About" />

@@ -31,5 +31,25 @@ namespace BillTime
         {
 
         }
+
+        private void clientsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void paymentMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void workMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void defaultsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
