@@ -105,7 +105,7 @@ namespace BillTime.Controls
         {
             ToggleFormFieldsDisplay(true);
             dateStackPanel.Visibility = Visibility.Collapsed;
-            orTextBlock.Visibility = Visibility.Collapsed; 
+            orTextBlock.Visibility = Visibility.Collapsed;
         }
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
@@ -165,7 +165,7 @@ namespace BillTime.Controls
 
             SqliteDataAccess.SaveData(sql, parameters);
 
-            //payments.Add(form.model);
+            payments.Add(form.model);
 
             MessageBox.Show("Success");
 
@@ -173,7 +173,19 @@ namespace BillTime.Controls
 
         private void UpdatePaymentRecord()
         {
-            throw new NotImplementedException();
+            string sql = "UPDATE Payment set ClientId = @ClientId, Hours = @Hours, Amount = @Amount, where Id = @Id, Date = @Date where Id = @Id ";
+
+            Dictionary<string, object> parameter = new Dictionary<string, object>
+            {
+                { "@ClientId", clientDropDown.SelectedValue },
+                { "@Hours", hoursTextBox.Text },
+                { "@Amount", amountTextBox.Text },
+                { "@Id", clientDropDown.Text }
+            };
+
+            SqliteDataAccess.SaveData(sql, parameter);
+
+
         }
 
         private void ResetForm()
@@ -204,14 +216,15 @@ namespace BillTime.Controls
         {
             orTextBlock.Visibility = Visibility.Collapsed;
             newButton.Visibility = Visibility.Collapsed;
-            ToggleFormFieldsDisplay(true);
 
             PaymentsModel payment = (PaymentsModel)dateDropDown.SelectedItem;
 
+            ToggleFormFieldsDisplay(true);
+
             amountTextBox.Text = payment.Amount.ToString();
+            hoursTextBox.Text = payment.Hours.ToString();
 
-
-            
+            isNewEntry = false;
 
 
         }
