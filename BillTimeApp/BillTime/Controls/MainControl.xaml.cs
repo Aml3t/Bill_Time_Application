@@ -59,7 +59,6 @@ namespace BillTime.Controls
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
             ResetForm();
-            throw new NotImplementedException();
         }
 
         private void ResetForm()
@@ -72,6 +71,55 @@ namespace BillTime.Controls
             hoursTextbox.Text = "";
             titleTextbox.Text = "";
             descriptionTextbox.Text = "";
+        }
+
+        private (bool isValid, PaymentsModel model) ValidateForm()
+        {
+            bool isValid = true;
+            PaymentsModel model = new PaymentsModel();
+
+            try
+            {
+                model.Amount = double.Parse(amountTextBox.Text);
+                model.Hours = double.Parse(hoursTextBox.Text);
+                //model.Date = DateTime.Parse(dateDropDown.Text);
+            }
+            catch
+            {
+                isValid = false;
+            }
+
+            return (isValid, model);
+        }
+
+        private void InsertNewPayment()
+        {
+            string sql = "INSERT INTO Payment (ClientId, Hours, Amount) "
+            + "VALUES (@ClientId, @Hours, @Amount)";
+
+            var form = ValidateForm();
+
+            if (form.isValid == false)
+            {
+                MessageBox.Show("Invalid form. Please check data and try again.");
+                return;
+            }
+
+            form.model.ClientId = (int)clientDropDown.SelectedValue;
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@ClientId", form.model.ClientId },
+                {"@Hours", form.model.Hours },
+                {"@Amount", form.model.Amount }
+            };
+
+            SqliteDataAccess.SaveData(sql, parameters);
+
+            payments.Add(form.model);
+
+            MessageBox.Show("Success");
+
         }
     }
 }
