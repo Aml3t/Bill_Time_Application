@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Menu IsMainMenu="True" Grid.Row="0" FontSize="18" Margin="0 0 0 10">
             <MenuItem Header="_File">
-                <MenuItem x:Name="mainMenuItem" Header="_Main" />
+                <MenuItem x:Name="mainMenuItem" Header="_Main" Click="mainMenuItem_Click"/>
                 <MenuItem x:Name="exitMenuItem" Header="E_xit" />
             </MenuItem>
             <MenuItem Header="_Editors">
