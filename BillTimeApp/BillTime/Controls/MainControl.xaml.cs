@@ -30,12 +30,12 @@ namespace BillTime.Controls
 
             InitializeClientList();
 
-            WireUpDropDowns();
+            WireClientDropDown();
 
 
         }
 
-        private void WireUpDropDowns()
+        private void WireClientDropDown()
         {
             clientDropDown.ItemsSource = clients;
             clientDropDown.DisplayMemberPath = "Name";
@@ -54,6 +54,24 @@ namespace BillTime.Controls
         private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void submitForm_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException
+        }
+
+        private void ResetForm()
+        {
+            .Visibility = Visibility.Visible;
+            orTextBlock.Visibility = Visibility.Visible;
+            newButton.Visibility = Visibility.Visible;
+
+            isNewEntry = true;
+
+            ClearFormData();
+
+            ToggleFormFieldsDisplay(false);
         }
     }
 }
