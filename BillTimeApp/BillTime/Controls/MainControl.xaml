@@ -23,7 +23,7 @@
         <!-- Row 1 -->
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
             <TextBlock FontSize="20">Client</TextBlock>
-            <ComboBox x:Name="clientDropDown" />
+            <ComboBox x:Name="clientDropDown" SelectionChanged="clientDropDown_SelectionChanged" />
         </StackPanel>
     
         <!-- Row 2 -->

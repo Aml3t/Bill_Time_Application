@@ -1,5 +1,8 @@
-﻿using System;
+﻿using BillTimeLibrary.DataAccess;
+using BillTimeLibrary.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,37 @@ namespace BillTime.Controls
     /// </summary>
     public partial class MainControl : UserControl
     {
+        ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
         public MainControl()
         {
             InitializeComponent();
+
+            InitializeClientList();
+
+            WireUpDropDowns();
+
+
+        }
+
+        private void WireUpDropDowns()
+        {
+            clientDropDown.ItemsSource = clients;
+            clientDropDown.DisplayMemberPath = "Name";
+            clientDropDown.SelectedValuePath = "Id";
+
+        }
+        private void InitializeClientList()
+        {
+            string sql = "select * from Client order by Name";
+
+            var clientList = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
+
+            clientList.ForEach(x => clients.Add(x));
+        }
+
+        private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
