@@ -58,20 +58,20 @@ namespace BillTime.Controls
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException
+            ResetForm();
+            throw new NotImplementedException();
         }
 
         private void ResetForm()
         {
-            .Visibility = Visibility.Visible;
-            orTextBlock.Visibility = Visibility.Visible;
-            newButton.Visibility = Visibility.Visible;
-
-            isNewEntry = true;
-
             ClearFormData();
+        }
 
-            ToggleFormFieldsDisplay(false);
+        private void ClearFormData()
+        {
+            hoursTextbox.Text = "";
+            titleTextbox.Text = "";
+            descriptionTextbox.Text = "";
         }
     }
 }
