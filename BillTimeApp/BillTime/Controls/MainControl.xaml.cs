@@ -131,9 +131,11 @@ namespace BillTime.Controls
         {
             if (isTimerRunning == true)
             {
+                TimeSpan result = DateTime.Now - startTime;
                 isTimerRunning = false;
                 operateTime.Content = "Start Timer";
                 operateTime.Background = Brushes.Green;
+                MessageBox.Show(result.TotalSeconds.ToString());
             }
             else
             {
