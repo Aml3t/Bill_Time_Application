@@ -81,6 +81,9 @@ namespace BillTime.Controls
             try
             {
                 model.Hours = double.Parse(hoursTextbox.Text);
+                model.Title = titleTextbox.Text;
+                model.Description = descriptionTextbox.Text;
+                model.ClientId = (int)clientDropDown.SelectedValue;
             }
             catch
             {
@@ -90,10 +93,10 @@ namespace BillTime.Controls
             return (isValid, model);
         }
 
-        private void InsertNewPayment()
+        private void InsertNewWorkItem()
         {
-            string sql = "INSERT INTO Payment (ClientId, Hours, Amount) "
-            + "VALUES (@ClientId, @Hours, @Amount)";
+            string sql = "INSERT INTO Work (ClientId, Hours, Title, Description) "
+            + "VALUES (@ClientId, @Hours, @Title, @Description)";
 
             var form = ValidateForm();
 
