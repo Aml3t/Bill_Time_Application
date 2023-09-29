@@ -129,21 +129,40 @@ namespace BillTime.Controls
 
         private void operateTime_Click(object sender, RoutedEventArgs e)
         {
-            if (isTimerRunning == true)
+
+            if (clientDropDown.SelectedItem != null)
             {
-                TimeSpan result = DateTime.Now - startTime;
-                isTimerRunning = false;
-                operateTime.Content = "Start Timer";
-                operateTime.Background = Brushes.Green;
-                MessageBox.Show(result.TotalSeconds.ToString());
+                if (isTimerRunning == true)
+                {
+                    //TimeSpan result = DateTime.Now - startTime;
+
+                    double minutes = DateTime.Now.Subtract(startTime).TotalMinutes;
+
+                    CalculateHours(minutes);
+
+                    isTimerRunning = false;
+                    operateTime.Content = "Start Timer";
+                    operateTime.Background = Brushes.Green;
+                    //MessageBox.Show(result.TotalMinutes.ToString());
+                }
+                else
+                {
+                    startTime = DateTime.Now;
+                    isTimerRunning = true;
+                    operateTime.Content = "Stop Timer";
+                    operateTime.Background = Brushes.Red;
+                }
             }
             else
             {
-                startTime = DateTime.Now;
-                isTimerRunning = true;
-                operateTime.Content = "Stop Timer";
-                operateTime.Background = Brushes.Red;
+                MessageBox.Show("Please select a client first.");
             }
+
+        }
+
+        private void CalculateHours(double minutes)
+        {
+            throw new NotImplementedException();
         }
     }
 }
