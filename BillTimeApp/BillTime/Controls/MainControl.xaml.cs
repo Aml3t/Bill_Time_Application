@@ -138,10 +138,7 @@ namespace BillTime.Controls
                 startTime = DateTime.Now;
                 isTimerRunning = true;
                 operateTime.Content = "Stop Timer";
-
-
-
-
+                operateTime.Background = Brushes.Red;
             }
         }
     }
