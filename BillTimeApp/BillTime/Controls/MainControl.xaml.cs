@@ -24,6 +24,11 @@ namespace BillTime.Controls
     public partial class MainControl : UserControl
     {
         ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
+
+        bool isTimerRunning = false;
+        DateTime startTime;
+
+
         public MainControl()
         {
             InitializeComponent();
@@ -124,7 +129,20 @@ namespace BillTime.Controls
 
         private void operateTime_Click(object sender, RoutedEventArgs e)
         {
+            if (isTimerRunning == true)
+            {
+                // Do the time calculation
+            }
+            else
+            {
+                startTime = DateTime.Now;
+                isTimerRunning = true;
+                operateTime.Content = "Stop Timer";
 
+
+
+
+            }
         }
     }
 }
