@@ -73,16 +73,14 @@ namespace BillTime.Controls
             descriptionTextbox.Text = "";
         }
 
-        private (bool isValid, PaymentsModel model) ValidateForm()
+        private (bool isValid, WorkModel model) ValidateForm()
         {
             bool isValid = true;
-            PaymentsModel model = new PaymentsModel();
+            WorkModel model = new WorkModel();
 
             try
             {
-                model.Amount = double.Parse(amountTextBox.Text);
-                model.Hours = double.Parse(hoursTextBox.Text);
-                //model.Date = DateTime.Parse(dateDropDown.Text);
+                model.Hours = double.Parse(hoursTextbox.Text);
             }
             catch
             {
