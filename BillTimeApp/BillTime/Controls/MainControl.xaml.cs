@@ -131,7 +131,9 @@ namespace BillTime.Controls
         {
             if (isTimerRunning == true)
             {
-                // Do the time calculation
+                isTimerRunning = false;
+                operateTime.Content = "Start Timer";
+                operateTime.Background = Brushes.Green;
             }
             else
             {

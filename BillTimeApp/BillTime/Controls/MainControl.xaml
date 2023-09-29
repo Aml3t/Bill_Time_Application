@@ -32,7 +32,8 @@
                 <TextBlock>Hours</TextBlock>
                 <TextBox x:Name="hoursTextbox" Height="31" Width="66"/>
             </StackPanel>
-            <Button x:Name="operateTime" Padding="15 0" Margin="5 20 5 0" Background="Green" Click="operateTime_Click">
+            <Button x:Name="operateTime" Padding="15 0" Margin="5 20 5 0" Background="Green"
+                    Foreground="White" Click="operateTime_Click">
                 <!--<Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}">
