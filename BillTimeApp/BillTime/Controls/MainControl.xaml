@@ -32,7 +32,7 @@
                 <TextBlock>Hours</TextBlock>
                 <TextBox x:Name="hoursTextbox" Height="31" Width="66"/>
             </StackPanel>
-            <Button x:Name="operateTime" Padding="15 0" Margin="0 5">Start Timer</Button>
+            <Button x:Name="operateTime" Padding="15 0" Margin="0 20 0 5" Click="operateTime_Click">Start Timer</Button>
         </StackPanel>
 
         <!-- Row 3 -->

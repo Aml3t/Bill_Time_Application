@@ -58,6 +58,8 @@ namespace BillTime.Controls
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
+            InsertNewWorkItem();
+
             ResetForm();
         }
 
@@ -102,24 +104,26 @@ namespace BillTime.Controls
 
             if (form.isValid == false)
             {
-                MessageBox.Show("Invalid form. Please check data and try again.");
+                MessageBox.Show("Invalid work form. Please check data and try again.");
                 return;
             }
-
-            form.model.ClientId = (int)clientDropDown.SelectedValue;
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 {"@ClientId", form.model.ClientId },
                 {"@Hours", form.model.Hours },
-                {"@Amount", form.model.Amount }
+                {"@Title", form.model.Title },
+                { "@Description", form.model.Description },
             };
 
             SqliteDataAccess.SaveData(sql, parameters);
 
-            payments.Add(form.model);
-
             MessageBox.Show("Success");
+
+        }
+
+        private void operateTime_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
