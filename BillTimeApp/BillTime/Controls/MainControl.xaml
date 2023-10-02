@@ -28,9 +28,9 @@
 
         <!-- Row 2 -->
         <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5 5 5 10">
-            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
+            <StackPanel Orientation="Vertical" Margin="0 0 20 0"  >
                 <TextBlock>Hours</TextBlock>
-                <TextBox x:Name="hoursTextbox" Height="31" Width="66"/>
+                <TextBox x:Name="hoursTextbox" Height="31" Width="66" Padding="0 5 0 5"/>
             </StackPanel>
             <Button x:Name="operateTime" Padding="15 0" Margin="5 20 5 0" Background="Green"
                     Foreground="White" Click="operateTime_Click">
