@@ -42,7 +42,6 @@ namespace BillTime.Controls
 
             selectionStackPanel.Visibility = Visibility.Collapsed;
 
-            //InitializePaymentsList();
         }
 
         private void WireUpDropDowns()

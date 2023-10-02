@@ -1,4 +1,5 @@
-﻿using BillTimeLibrary.Models;
+﻿using BillTimeLibrary.DataAccess;
+using BillTimeLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,11 +23,31 @@ namespace BillTime.Controls
     /// </summary>
     public partial class WorkControl : UserControl
     {
-        ObservableCollection<ClientModel> client = new ObservableCollection<ClientModel>();
+        ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
 
         public WorkControl()
         {
             InitializeComponent();
+
+            WireClientDropDown();
+
+            InitializeClientList();
+        }
+
+        private void WireClientDropDown()
+        {
+            clientDropDown.ItemsSource = clients;
+            clientDropDown.DisplayMemberPath = "Name";
+            clientDropDown.SelectedValuePath = "Id";
+
+        }
+        private void InitializeClientList()
+        {
+            string sql = "select * from Client order by Name";
+
+            var clientList = SqliteDataAccess.LoadData<ClientModel>(sql, new Dictionary<string, object>());
+
+            clientList.ForEach(x => clients.Add(x));
         }
 
 

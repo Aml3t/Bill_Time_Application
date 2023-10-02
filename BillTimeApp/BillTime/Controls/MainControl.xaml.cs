@@ -36,8 +36,6 @@ namespace BillTime.Controls
             InitializeClientList();
 
             WireClientDropDown();
-
-
         }
 
         private void WireClientDropDown()
