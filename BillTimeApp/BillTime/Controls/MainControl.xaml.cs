@@ -162,7 +162,9 @@ namespace BillTime.Controls
 
         private void CalculateHours(double minutes)
         {
-            throw new NotImplementedException();
+            ClientModel client = (ClientModel)clientDropDown.SelectedValue;
+
+            client.Bil
         }
     }
 }
