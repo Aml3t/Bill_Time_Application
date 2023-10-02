@@ -170,13 +170,18 @@ namespace BillTime.Controls
 
             while (tempMinutes >= billingMinutes)
             {
-                total += billingMinutes;
+                total += client.BillingIncrement;
+                tempMinutes -= billingMinutes;
             }
 
+            // This routine is for the remaining minutes after the billing increment.
+            if (tempMinutes >= client.RoundUpAfterXMinutes)
+            {
+                total += client.BillingIncrement;
+            }
 
+            hoursTextbox.Text = total.ToString();
 
-
-            
         }
     }
 }

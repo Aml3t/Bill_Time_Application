@@ -19,6 +19,8 @@ namespace BillTimeLibrary.Models
 
         // Charges the client every x minutes
         public double BillingIncrement { get; set; }
+
+        // The minimum threshold of a charge, i.e the client gets billed after X minutes.
         public int RoundUpAfterXMinutes { get; set; }
 
 
