@@ -32,6 +32,8 @@ namespace BillTime.Controls
             WireClientDropDown();
 
             InitializeClientList();
+
+            ToggleFormFieldsDisplay(false);
         }
 
         private void WireClientDropDown()
@@ -49,6 +51,35 @@ namespace BillTime.Controls
 
             clientList.ForEach(x => clients.Add(x));
         }
+
+        private void LoadDateDropDown()
+        {
+            //int clientId = ((ClientModel)(clientDropDown.SelectedItem)).Id;
+
+            string sql = "select * from Clients Where ClientId = @ClientId";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@ClientId", clientDropDown.SelectedValue }
+            };
+
+            var records = SqliteDataAccess.LoadData<ClientModel>(sql, parameters);
+
+        }
+
+        private void ToggleFormFieldsDisplay(bool displayFields)
+        {
+            Visibility display = displayFields ? Visibility.Visible : Visibility.Collapsed;
+
+            dateDropDown.Visibility = display;
+            hoursTextBox.Visibility = display;
+            titleTextbox.Visibility = display;
+            descriptionTextbox.Visibility = display;
+            paidCheckbox.Visibility = display;
+            paymentDropDown.Visibility = display;
+
+        }
+
 
 
     }
