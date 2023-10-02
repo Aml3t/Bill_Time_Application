@@ -162,9 +162,21 @@ namespace BillTime.Controls
 
         private void CalculateHours(double minutes)
         {
-            ClientModel client = (ClientModel)clientDropDown.SelectedValue;
+            ClientModel client = (ClientModel)clientDropDown.SelectedItem;
 
-            client.Bil
+            double total = 0;
+            double tempMinutes = minutes;
+            double billingMinutes = (client.BillingIncrement * 60);
+
+            while (tempMinutes >= billingMinutes)
+            {
+                total += billingMinutes;
+            }
+
+
+
+
+            
         }
     }
 }

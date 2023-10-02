@@ -16,6 +16,8 @@ namespace BillTimeLibrary.Models
         public int HasCutOff { get; set; }
         public int CutOff { get; set; }
         public double MinimumHours { get; set; }
+
+        // Charges the client every x minutes
         public double BillingIncrement { get; set; }
         public int RoundUpAfterXMinutes { get; set; }
 
