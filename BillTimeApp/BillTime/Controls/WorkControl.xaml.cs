@@ -71,12 +71,11 @@ namespace BillTime.Controls
         {
             Visibility display = displayFields ? Visibility.Visible : Visibility.Collapsed;
 
-            dateDropDown.Visibility = display;
-            hoursTextBox.Visibility = display;
-            titleTextbox.Visibility = display;
-            descriptionTextbox.Visibility = display;
-            paidCheckbox.Visibility = display;
-            paymentDropDown.Visibility = display;
+            dateStackPanel.Visibility = display;
+            hoursStackPanel.Visibility = display;
+            titleStackPanel.Visibility = display;
+            descriptionStackPanel.Visibility = display;
+            paidStackPanel.Visibility = display;
 
         }
 

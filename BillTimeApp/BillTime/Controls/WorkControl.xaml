@@ -29,7 +29,7 @@
         </StackPanel>
 
         <!-- Row 2 -->
-        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="5 5 5 10" x:Name="dateStackPanel">
             <TextBlock>Date</TextBlock>
             <ComboBox x:Name="dateDropDown"/>
             <!--<Button x:Name="editButton" Padding="5 2" Margin="5 0" VerticalAlignment="Bottom">Edit</Button>
@@ -37,13 +37,13 @@
         </StackPanel>
 
         <!-- Row 3 -->
-        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="3" Margin="5 5 5 10" x:Name="hoursStackPanel">
             <TextBlock>Hours</TextBlock>
             <TextBox x:Name="hoursTextBox"/>
         </StackPanel>
 
         <!-- Row 4 -->
-        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="5 5 5 10" x:Name="titleStackPanel">
             <StackPanel Orientation="Vertical">
                 <TextBlock>Title</TextBlock>
                 <TextBox x:Name="titleTextbox"/>
@@ -51,14 +51,14 @@
         </StackPanel>
 
         <!-- Row 5 -->
-        <StackPanel Orientation="Vertical" Grid.Row="5" Margin="5 5 5 10">
+        <StackPanel Orientation="Vertical" Grid.Row="5" Margin="5 5 5 10" x:Name="descriptionStackPanel">
             <TextBlock>Description</TextBlock>
             <TextBox x:Name="descriptionTextbox" TextWrapping="Wrap"
                          AcceptsReturn="True" Height="80"/>
         </StackPanel>
 
         <!-- Row 6-->
-        <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="5 5 5 10">
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="5 5 5 10" x:Name="paidStackPanel">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -67,7 +67,7 @@
                 <TextBlock Margin="0,6,10,2">Paid</TextBlock>
                 <CheckBox x:Name="paidCheckbox" Margin="37,12,2,1" Grid.ColumnSpan="2"/>
             </Grid>
-            <StackPanel Orientation="Horizontal" Margin="5 5 5 10">
+            <StackPanel Orientation="Horizontal" Margin="5 5 5 10" x:Name="paymentStackPanel">
                 <TextBlock Margin="0 0 10 0">Payment</TextBlock>
                 <ComboBox x:Name="paymentDropDown" Width="140"/>
             </StackPanel>
