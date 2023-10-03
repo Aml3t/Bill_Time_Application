@@ -25,6 +25,8 @@ namespace BillTime.Controls
     {
         ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
 
+        ObservableCollection<WorkModel> work = new ObservableCollection<WorkModel>();
+
         public WorkControl()
         {
             InitializeComponent();
@@ -54,16 +56,17 @@ namespace BillTime.Controls
 
         private void LoadDateDropDown()
         {
-            //int clientId = ((ClientModel)(clientDropDown.SelectedItem)).Id;
-
-            string sql = "select * from Clients Where ClientId = @ClientId";
+            string sql = "select * from Work Where ClientId = @ClientId";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 {"@ClientId", clientDropDown.SelectedValue }
             };
 
-            var records = SqliteDataAccess.LoadData<ClientModel>(sql, parameters);
+            var records = SqliteDataAccess.LoadData<WorkModel>(sql, parameters);
+
+            work.Clear();
+            records.ForEach(x => work.Add(x));
 
         }
 
@@ -79,6 +82,12 @@ namespace BillTime.Controls
             submitForm.Visibility = display;
         }
 
+        private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dateStackPanel.Visibility = Visibility.Visible;
+            LoadDateDropDown();
+
+        }
 
 
     }
