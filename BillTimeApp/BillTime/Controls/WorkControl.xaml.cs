@@ -47,11 +47,11 @@ namespace BillTime.Controls
             clientDropDown.SelectedValuePath = "Id";
 
             dateDropDown.ItemsSource = work;
-            dateDropDown.DisplayMemberPath = "DateEntered";
+            dateDropDown.DisplayMemberPath = "DisplayValue";
             dateDropDown.SelectedValuePath = "Id";
 
             paymentDropDown.ItemsSource = payments;
-            paymentDropDown.DisplayMemberPath = "Date";
+            paymentDropDown.DisplayMemberPath = "DisplayValue";
             paymentDropDown.SelectedValuePath = "Id";
         }
         private void InitializeClientList()

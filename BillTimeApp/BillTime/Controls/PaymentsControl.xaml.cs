@@ -25,10 +25,9 @@ namespace BillTime.Controls
     {
         ObservableCollection<ClientModel> clients = new ObservableCollection<ClientModel>();
 
-        bool isNewEntry = true;
-
         ObservableCollection<PaymentsModel> payments = new ObservableCollection<PaymentsModel>();
 
+        bool isNewEntry = true;
 
         public PaymentsControl()
         {
@@ -51,7 +50,7 @@ namespace BillTime.Controls
             clientDropDown.SelectedValuePath = "Id";
 
             dateDropDown.ItemsSource = payments;
-            dateDropDown.DisplayMemberPath = "Date";
+            dateDropDown.DisplayMemberPath = "DisplaValue";
             dateDropDown.SelectedValuePath = "Id";
 
         }
@@ -64,7 +63,6 @@ namespace BillTime.Controls
 
             clientList.ForEach(x => clients.Add(x));
         }
-
 
 
         private void LoadDateDropDown()
@@ -231,13 +229,12 @@ namespace BillTime.Controls
 
             PaymentsModel payment = (PaymentsModel)dateDropDown.SelectedItem;
 
-            ToggleFormFieldsDisplay(true);
-
             amountTextBox.Text = payment.Amount.ToString();
             hoursTextBox.Text = payment.Hours.ToString();
 
             isNewEntry = false;
 
+            ToggleFormFieldsDisplay(true);
 
         }
     }

@@ -16,5 +16,13 @@ namespace BillTimeLibrary.Models
         public string DateEntered { get; set; }
         public int Paid { get; set; }
         public int? PaymentId { get; set; }
+
+        public string DisplayValue
+        {
+            get
+            {
+                return $"{DateEntered} - {Title}";
+            }
+        }
     }
 }
