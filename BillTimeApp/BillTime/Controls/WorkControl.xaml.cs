@@ -27,6 +27,8 @@ namespace BillTime.Controls
 
         ObservableCollection<WorkModel> work = new ObservableCollection<WorkModel>();
 
+        ObservableCollection<PaymentsModel> payments = new ObservableCollection<PaymentsModel>();
+
         public WorkControl()
         {
             InitializeComponent();
@@ -101,9 +103,22 @@ namespace BillTime.Controls
             hoursTextBox.Text = workEntry.Hours.ToString();
             titleTextbox.Text = workEntry.Title;
             descriptionTextbox.Text = workEntry.Description;
+            paidCheckbox.IsChecked = workEntry.Paid > 0;
+        }
 
+        private void LoadPaymentDropDown()
+        {
+            string sql = "select * from Payment Where ClientId = @ClientId";
 
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                {"@ClientId", clientDropDown.SelectedValue }
+            };
 
+            var records = SqliteDataAccess.LoadData<PaymentsModel>(sql, parameters);
+
+            payments.Clear();
+            records.ForEach(x => payments.Add(x));
         }
     }
 }
