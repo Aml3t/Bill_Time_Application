@@ -95,6 +95,15 @@ namespace BillTime.Controls
         private void dateDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ToggleFormFieldsDisplay(true);
+
+            WorkModel workEntry = (WorkModel)dateDropDown.SelectedItem;
+
+            hoursTextBox.Text = workEntry.Hours.ToString();
+            titleTextbox.Text = workEntry.Title;
+            descriptionTextbox.Text = workEntry.Description;
+
+
+
         }
     }
 }
