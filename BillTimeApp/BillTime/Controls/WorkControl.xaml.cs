@@ -31,18 +31,22 @@ namespace BillTime.Controls
         {
             InitializeComponent();
 
-            WireClientDropDown();
+            WireDropDowns();
 
             InitializeClientList();
 
             ToggleFormFieldsDisplay(false);
         }
 
-        private void WireClientDropDown()
+        private void WireDropDowns()
         {
             clientDropDown.ItemsSource = clients;
             clientDropDown.DisplayMemberPath = "Name";
             clientDropDown.SelectedValuePath = "Id";
+
+            dateDropDown.ItemsSource = work;
+            dateDropDown.DisplayMemberPath = "DateEntered";
+            dateDropDown.SelectedValuePath = "Id";
 
         }
         private void InitializeClientList()
@@ -86,7 +90,6 @@ namespace BillTime.Controls
         {
             dateStackPanel.Visibility = Visibility.Visible;
             LoadDateDropDown();
-
         }
 
 
