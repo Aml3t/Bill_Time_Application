@@ -50,6 +50,9 @@ namespace BillTime.Controls
             dateDropDown.DisplayMemberPath = "DateEntered";
             dateDropDown.SelectedValuePath = "Id";
 
+            paymentDropDown.ItemsSource = payments;
+            paymentDropDown.DisplayMemberPath = "Date";
+            paymentDropDown.SelectedValuePath = "Id";
         }
         private void InitializeClientList()
         {
@@ -91,7 +94,10 @@ namespace BillTime.Controls
         private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dateStackPanel.Visibility = Visibility.Visible;
+            
             LoadDateDropDown();
+
+            LoadPaymentDropDown();
         }
 
         private void dateDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
