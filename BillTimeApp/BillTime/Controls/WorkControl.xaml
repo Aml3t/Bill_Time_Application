@@ -65,7 +65,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Margin="0,6,10,2">Paid</TextBlock>
-                <CheckBox x:Name="paidCheckbox" Margin="37,12,2,1" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="paidCheckbox" Margin="37,12,2,1" Grid.ColumnSpan="2" Click="paidCheckbox_Click"/>
             </Grid>
             <StackPanel Orientation="Horizontal" Margin="5 5 5 10" x:Name="paymentStackPanel">
                 <TextBlock Margin="0 0 10 0">Payment</TextBlock>

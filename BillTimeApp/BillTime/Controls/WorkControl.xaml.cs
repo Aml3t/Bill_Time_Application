@@ -94,7 +94,7 @@ namespace BillTime.Controls
         private void clientDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dateStackPanel.Visibility = Visibility.Visible;
-            
+
             LoadDateDropDown();
 
             LoadPaymentDropDown();
@@ -110,6 +110,22 @@ namespace BillTime.Controls
             titleTextbox.Text = workEntry.Title;
             descriptionTextbox.Text = workEntry.Description;
             paidCheckbox.IsChecked = workEntry.Paid > 0;
+
+            if (workEntry.Paid > 0)
+            {
+                paymentStackPanel.Visibility = Visibility.Visible;
+
+                var selectedPayment = payments.Where(x => x.Id == workEntry.PaymentId).FirstOrDefault();
+
+                if (selectedPayment != null)
+                {
+                    paymentDropDown.SelectedItem = selectedPayment;
+                }
+            }
+            else
+            {
+                paymentStackPanel.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void LoadPaymentDropDown()
@@ -125,6 +141,19 @@ namespace BillTime.Controls
 
             payments.Clear();
             records.ForEach(x => payments.Add(x));
+        }
+
+        private void paidCheckbox_Click(object sender, RoutedEventArgs e)
+        {
+            if (paidCheckbox.IsChecked == true)
+            {
+                paymentStackPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                paymentStackPanel.Visibility = Visibility.Collapsed;
+
+            }
         }
     }
 }
