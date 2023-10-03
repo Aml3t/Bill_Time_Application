@@ -76,7 +76,7 @@ namespace BillTime.Controls
             titleStackPanel.Visibility = display;
             descriptionStackPanel.Visibility = display;
             paidStackPanel.Visibility = display;
-
+            submitForm.Visibility = display;
         }
 
 
