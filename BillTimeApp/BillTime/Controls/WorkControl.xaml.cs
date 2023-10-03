@@ -92,6 +92,9 @@ namespace BillTime.Controls
             LoadDateDropDown();
         }
 
-
+        private void dateDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ToggleFormFieldsDisplay(true);
+        }
     }
 }
