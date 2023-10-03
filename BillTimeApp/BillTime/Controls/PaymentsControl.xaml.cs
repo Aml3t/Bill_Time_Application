@@ -50,7 +50,7 @@ namespace BillTime.Controls
             clientDropDown.SelectedValuePath = "Id";
 
             dateDropDown.ItemsSource = payments;
-            dateDropDown.DisplayMemberPath = "DisplaValue";
+            dateDropDown.DisplayMemberPath = "DisplayValue";
             dateDropDown.SelectedValuePath = "Id";
 
         }

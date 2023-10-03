@@ -13,7 +13,6 @@ namespace BillTimeLibrary.Models
         public double Hours { get; set; }
         public double Amount { get; set; }
         public string Date { get; set; }
-
         public string DisplayValue
         {
             get
