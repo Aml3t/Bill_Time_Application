@@ -75,7 +75,7 @@
 
         <!-- Row 7 -->
         <Button x:Name="submitForm" Grid.Row="7" Width="100"
-                Margin="5 -2 5 10" Padding="10 1" 
+                Margin="5 -2 5 10" Padding="10 1" Click="submitForm_Click"
                 >Submit</Button>
 
     </Grid>

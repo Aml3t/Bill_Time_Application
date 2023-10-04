@@ -156,5 +156,24 @@ namespace BillTime.Controls
 
             }
         }
+
+        private void submitForm_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ResetForm()
+        {
+            ToggleFormFieldsDisplay(false);
+
+            ClearFormData();
+
+        }
+
+        private void ClearFormData()
+        {
+            amountTextBox.Text = "";
+            hoursTextBox.Text = "";
+        }
     }
 }
