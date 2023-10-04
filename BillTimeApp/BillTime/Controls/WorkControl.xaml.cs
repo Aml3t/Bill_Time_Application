@@ -145,6 +145,7 @@ namespace BillTime.Controls
 
         private void paidCheckbox_Click(object sender, RoutedEventArgs e)
         {
+
             if (paidCheckbox.IsChecked == true)
             {
                 paymentStackPanel.Visibility = Visibility.Visible;
