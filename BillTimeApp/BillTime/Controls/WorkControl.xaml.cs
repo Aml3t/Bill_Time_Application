@@ -198,16 +198,30 @@ namespace BillTime.Controls
 
         }
 
-        private (bool isValid, PaymentsModel model) ValidateForm()
+        private (bool isValid, WorkModel model) ValidateForm()
         {
             bool isValid = true;
-            PaymentsModel model = new PaymentsModel();
+            WorkModel model = new WorkModel();
 
             try
             {
-                model.Amount = double.Parse(amountTextBox.Text);
+                var payment = (PaymentsModel)paymentDropDown.SelectedItem;
+                int? paymentId;
+
+                if (payment != null && paidCheckbox.IsChecked == true)
+                {
+                    paymentId = payment.Id;
+                }
+                else
+                {
+                    paymentId = null;
+                }
+
+
                 model.Hours = double.Parse(hoursTextBox.Text);
-                //model.Date = DateTime.Parse(dateDropDown.Text);
+                model.Title = titleTextbox.Text;
+                model.Description = descriptionTextbox.Text;
+                model.Paid = (bool)paidCheckbox.IsChecked ? 1 : 0;
             }
             catch
             {
