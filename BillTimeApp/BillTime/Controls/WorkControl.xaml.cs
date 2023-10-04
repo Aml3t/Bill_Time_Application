@@ -170,7 +170,7 @@ namespace BillTime.Controls
 
         private void UpdateWorkRecord()
         {
-            string sql = "UPDATE Work set Hours = @Hours, Title = @Title, Description where Id = @Id";
+            string sql = "UPDATE Work set Hours = @Hours, Title = @Title, Description = @Description, Paid = @Paid, PaymentId = @PaymentId where Id = @Id";
 
             var form = ValidateForm();
 
@@ -198,14 +198,24 @@ namespace BillTime.Controls
 
         }
 
+        private (bool isValid, PaymentsModel model) ValidateForm()
+        {
+            bool isValid = true;
+            PaymentsModel model = new PaymentsModel();
 
+            try
+            {
+                model.Amount = double.Parse(amountTextBox.Text);
+                model.Hours = double.Parse(hoursTextBox.Text);
+                //model.Date = DateTime.Parse(dateDropDown.Text);
+            }
+            catch
+            {
+                isValid = false;
+            }
 
-
-
-
-
-
-
+            return (isValid, model);
+        }
 
 
 
