@@ -184,7 +184,10 @@ namespace BillTime.Controls
             {
                 { "@Id", dateDropDown.SelectedValue },
                 { "@Hours", form.model.Hours },
-                { "@Amount", form.model.Amount }
+                { "@Title", form.model.Title },
+                { "@Description", form.model.Description },
+                { "@Paid", form.model.Paid },
+                { "@PaymentId", form.model.PaymentId}
             };
 
             SqliteDataAccess.SaveData(sql, parameter);
@@ -222,6 +225,7 @@ namespace BillTime.Controls
                 model.Title = titleTextbox.Text;
                 model.Description = descriptionTextbox.Text;
                 model.Paid = (bool)paidCheckbox.IsChecked ? 1 : 0;
+                model.PaymentId = paymentId;
             }
             catch
             {
