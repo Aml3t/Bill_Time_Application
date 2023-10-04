@@ -192,10 +192,13 @@ namespace BillTime.Controls
 
             SqliteDataAccess.SaveData(sql, parameter);
 
-            PaymentsModel currentPayment = (PaymentsModel)(dateDropDown.SelectedItem);
+            WorkModel currentPayment = (WorkModel)(dateDropDown.SelectedItem);
 
-            currentPayment.Amount = form.model.Amount;
             currentPayment.Hours = form.model.Hours;
+            currentPayment.Title = form.model.Title;
+            currentPayment.Description = form.model.Description;
+            currentPayment.Paid = form.model.Paid;
+            currentPayment.PaymentId = form.model.PaymentId;
 
             MessageBox.Show("Client successfully updated");
 
@@ -219,7 +222,6 @@ namespace BillTime.Controls
                 {
                     paymentId = null;
                 }
-
 
                 model.Hours = double.Parse(hoursTextBox.Text);
                 model.Title = titleTextbox.Text;
