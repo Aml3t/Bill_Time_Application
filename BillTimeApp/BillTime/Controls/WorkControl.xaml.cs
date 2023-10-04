@@ -102,6 +102,11 @@ namespace BillTime.Controls
 
         private void dateDropDown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (dateDropDown.SelectedItem == null)
+            {
+                return;
+            }
+
             ToggleFormFieldsDisplay(true);
 
             WorkModel workEntry = (WorkModel)dateDropDown.SelectedItem;
@@ -159,21 +164,71 @@ namespace BillTime.Controls
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            //ResetForm();
+            //throw new NotImplementedException();
         }
 
-        private void ResetForm()
+        private void UpdateWorkRecord()
         {
-            ToggleFormFieldsDisplay(false);
+            string sql = "UPDATE Work set Hours = @Hours, Title = @Title, Description where Id = @Id";
 
-            ClearFormData();
+            var form = ValidateForm();
+
+            if (form.isValid == false)
+            {
+                MessageBox.Show("Invalid input. Please check again.");
+                return;
+            }
+
+            Dictionary<string, object> parameter = new Dictionary<string, object>
+            {
+                { "@Id", dateDropDown.SelectedValue },
+                { "@Hours", form.model.Hours },
+                { "@Amount", form.model.Amount }
+            };
+
+            SqliteDataAccess.SaveData(sql, parameter);
+
+            PaymentsModel currentPayment = (PaymentsModel)(dateDropDown.SelectedItem);
+
+            currentPayment.Amount = form.model.Amount;
+            currentPayment.Hours = form.model.Hours;
+
+            MessageBox.Show("Client successfully updated");
 
         }
 
-        private void ClearFormData()
-        {
-            amountTextBox.Text = "";
-            hoursTextBox.Text = "";
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //private void ResetForm()
+        //{
+        //    ToggleFormFieldsDisplay(false);
+
+        //    ClearFormData();
+
+        //}
+
+        //private void ClearFormData()
+        //{
+        //    hoursTextBox.Text = "";
+        //    titleTextbox.Text = "";
+        //    descriptionTextbox.Text = "";
+        //    paidCheckbox.IsChecked = false;
+        //    paymentStackPanel.Visibility = Visibility.Collapsed;
+        //}
     }
 }
