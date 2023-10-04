@@ -164,8 +164,7 @@ namespace BillTime.Controls
 
         private void submitForm_Click(object sender, RoutedEventArgs e)
         {
-            //ResetForm();
-            //throw new NotImplementedException();
+            UpdateWorkRecord();
         }
 
         private void UpdateWorkRecord()
